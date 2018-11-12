@@ -1,7 +1,7 @@
 /* global */
 
 body {
-  font-family: "Arvo", sans-serif;
+  font-family: "Arvo", Arial, Helvetica, sans-serif;
   margin: 0 20px;
 }
 
@@ -39,7 +39,7 @@ a {
 }
 
 .signatures {
-  font-family: "Permanent Marker", sans-serif;
+  font-family: "Permanent Marker", Impact, Charcoal, sans-serif;
 }
 
 .signatures a {
