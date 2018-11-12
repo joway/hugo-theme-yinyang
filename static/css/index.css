@@ -30,7 +30,7 @@ a {
 /* header */
 
 .site-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-top: 32px;
 }
 
@@ -70,6 +70,16 @@ a {
 
 .post-line {
   margin: 12px 0;
+}
+
+.posts-footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.posts-footer-item {
+  margin-right: 12px;
 }
 
 /* post */

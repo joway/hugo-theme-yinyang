@@ -21,7 +21,7 @@
                 {{ end }}
                 {{ end }}
               </div>
-              <div>
+              <div class="posts-list">
                 {{ range .Data.Pages.GroupByDate "2006" -}}
                 <section>
                   <h1 class="site-date-catalog">{{ .Key }}</h1>
@@ -35,10 +35,18 @@
                       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                     </div>
                   </div>
-                  {{- end }}
+                  {{ end }}
                 </section>
                 {{ end }}
+              </div>
+
+              <div class="posts-footer">
+                {{ range .Site.Params.socials }}
+                <div class="posts-footer-item">
+                  <a href="{{ .link }}" target="_blank">{{ .name }}</a>
                 </div>
+                {{ end }}
+              </div>
             </div>
           </div>
     </article>
