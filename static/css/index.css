@@ -2,7 +2,7 @@
 
 body {
   font-family: "Arvo", sans-serif;
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 a {
@@ -30,12 +30,12 @@ a {
 /* header */
 
 .site-title {
-  font-size: 3.5em;
+  font-size: 3.5rem;
   margin-top: 32px;
 }
 
 .site-date-catalog {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 .signatures {
@@ -76,6 +76,9 @@ a {
 
 .post img {
   max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .post-date {}
@@ -90,7 +93,7 @@ a {
 }
 
 .post-title {
-  font-size: 2.5em;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 
