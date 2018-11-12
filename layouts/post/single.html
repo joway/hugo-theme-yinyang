@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ partial "head.html" . }}
+
+  <body>
+    <article class="post">
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+          <a href="{{ .Site.BaseURL }}{{ .LanguagePrefix }}">
+            <div class="head-line"></div>
+          </a>
+          <header class="post-header">
+            <h1 class="post-title">{{ .Title }}</h1>
+            <div class="row">
+              <div class="col-xs-6">
+                <time class="post-date" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">
+                  {{ .Date.Format "02 Jan 2006" }}
+                </time>
+              </div>
+              <div class="col-xs-6">
+                <div class="post-author">
+                  <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
+                </div>
+              </div>
+            </div>
+          </header>
+    
+          <div class="post-content markdown-body">
+            {{ .Content }}
+          </div>
+          {{ if .Site.Params.disqus }}
+          <div class="post-comments">
+            {{ partial "disqus.html" . }}
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </article>
+
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

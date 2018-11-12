@@ -1,0 +1,20 @@
+name = "Yinyang"
+license = "MIT"
+licenselink = "https://github.com/joway/hugo-theme-yinyang/blob/master/LICENSE"
+description = "Yinyang theme for Hugo."
+homepage = "https://github.com/joway/hugo-theme-yinyang"
+tags = [
+  "blog",
+  "minimal",
+  "minimalist",
+  "responsive",
+  "simple",
+  "clean",
+  "personal"
+]
+features = ["blog"]
+min_version = "0.0.1"
+
+[author]
+  name = "Joway Wang"
+  homepage = "https://joway.io"

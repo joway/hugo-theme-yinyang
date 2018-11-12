@@ -1,0 +1,31 @@
+<head>
+    <meta charset="utf-8">
+    {{ .Hugo.Generator }}
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="{{ .Site.Author.name }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+
+    {{ if .IsHome -}}
+    <title>{{ .Site.Title }}</title>
+    <meta property="og:title" content="{{ .Site.Title }}">
+    <meta property="og:type" content="website">
+    <meta name="description" content="{{ .Site.Params.description }}">
+    {{- else -}}
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+    <meta property="og:type" content="article">
+    <meta name="description" content="{{ .Description }}">
+    {{- end }}
+
+    <link rel="stylesheet" href="{{ "css/flexboxgrid.min.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
+
+    {{ if not .IsHome -}}
+    <link rel="stylesheet" href="{{ "css/github-md.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/highlight/tomorrow-night.css" | relURL }}">
+    {{- end }}
+    <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+
+  </head>

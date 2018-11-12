@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ partial "head.html" . }}
+  {{$curLanguageName := .Site.Language.LanguageName }}
+
+  <body>
+    <article class="posts">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+              <header>
+                <div class="signatures site-title">
+                  <a href="{{ .Site.BaseURL }}{{ .LanguagePrefix }}">{{ .Site.Author.name }}</a>
+                </div>
+              </header>
+              <div class="row">
+                {{ range .Site.Languages -}}
+                {{ if ne .LanguageName $curLanguageName }}
+                <div class="lang-switch col-xs-2 col-xs-offset-10">
+                  <a href="/{{ .Lang }}">{{ .LanguageName }}</a>
+                </div>
+                {{ end }}
+                {{ end }}
+              </div>
+              <div>
+                {{ range .Data.Pages.GroupByDate "2006" -}}
+                <section>
+                  <h1 class="site-date-catalog">{{ .Key }}</h1>
+            
+                  {{ range .Pages -}}
+                  <div class="row post-line">
+                    <div class="posts-date col-xs-2">
+                      <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+                    </div>
+                    <div class="posts-title col-xs-10">
+                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </div>
+                  </div>
+                  {{- end }}
+                </section>
+                {{ end }}
+                </div>
+            </div>
+          </div>
+    </article>
+
+    {{ partial "scripts.html" . }}
+  </body>
+</html>
