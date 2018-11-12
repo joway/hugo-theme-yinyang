@@ -1,4 +1,4 @@
-baseURL = "https://blog.joway.io/"
+baseURL = "https://example.com"
 languageCode = "en-us"
 title = "Joway's Blog"
 theme = "yinyang"
@@ -10,8 +10,12 @@ DefaultContentLanguage = "en"
 
 [languages]
   [languages.en]
-    contentDir = "content"
+    contentDir = "content/en"
     languageName = "English"
+    weight = 1
+  [languages.cn]
+    contentDir = "content/cn"
+    languageName = "Chinese"
     weight = 1
 
 [params]
