@@ -1,0 +1,22 @@
+baseURL = "https://blog.joway.io/"
+languageCode = "en-us"
+title = "Joway's Blog"
+theme = "yinyang"
+DefaultContentLanguage = "en"
+
+[author]
+  name = "Joway Wang"
+  homepage = "https://joway.io/"
+
+[languages]
+  [languages.en]
+    contentDir = "content"
+    languageName = "English"
+    weight = 1
+
+[params]
+disqus = "joway" # disqus account name
+extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://joway.io/analytics.js"></script>'
+[[params.socials]]
+name = "About Me"
+link = "https://joway.io"

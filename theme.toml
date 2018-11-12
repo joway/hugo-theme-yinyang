@@ -18,3 +18,9 @@ min_version = "0.0.1"
 [author]
   name = "Joway Wang"
   homepage = "https://joway.io"
+
+[languages]
+  [languages.en]
+    contentDir = "content"
+    languageName = "English"
+    weight = 1
