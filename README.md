@@ -34,7 +34,7 @@
     weight = 2
 ```
 
-Then you posts file should be put into `content/en` or `content/cn`.
+Then your posts files should be put into `content/en` or `content/cn`.
 
 ### Google Analytics
 
