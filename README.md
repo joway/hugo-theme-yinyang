@@ -2,7 +2,7 @@
 
 [YinYang](https://en.wikipedia.org/wiki/Yin_and_yang) is a black-white theme for [Hugo](https://gohugo.io/).
 
-[Demo](https://blog.joway.io)
+[**Demo**](https://blog.joway.io)
 
 ## Feature
 
@@ -10,13 +10,50 @@
 - multi-language support
 - [disqus](https://disqus.com) support
 
+## Screenshot
+
+![](./images/screenshot.png)
+
 ## Installation
 
 [Install and Use Theme](https://gohugo.io/themes/installing-and-using-themes/)
 
 ## Configuration
 
-#### config.toml
+### Multi-Language
+
+```
+[languages]
+  [languages.en]
+    contentDir = "content/en"
+    languageName = "English"
+    weight = 1
+  [languages.cn]
+    contentDir = "content/cn"
+    languageName = "Chinese"
+    weight = 2
+```
+
+Then you posts file should be put into `content/en` or `content/cn`.
+
+### Google Analytics
+
+```
+extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxxxxxx-x"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-xxxxxxx-x');</script>'
+```
+
+### Footer
+
+```
+[[params.socials]]
+name = "About Me"
+link = "https://joway.io"
+[[params.socials]]
+name = "Github"
+link = "https://github.com/joway"
+```
+
+### Example
 
 ```
 baseURL = "https://blog.joway.io/"
