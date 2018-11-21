@@ -36,12 +36,6 @@
 
 Then your posts files should be put into `content/en` or `content/cn`.
 
-### Google Analytics
-
-```
-extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxxxxxx-x"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-xxxxxxx-x');</script>'
-```
-
 ### Footer
 
 ```
@@ -51,6 +45,13 @@ link = "https://joway.io"
 [[params.socials]]
 name = "Github"
 link = "https://github.com/joway"
+```
+
+### Extra Head
+
+```
+[params]
+extraHead = '<script src="xxxx.js"></script>'
 ```
 
 ### Example

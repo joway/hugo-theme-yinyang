@@ -20,7 +20,7 @@ DefaultContentLanguage = "en"
 
 [params]
 disqus = "joway" # disqus account name
-extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://joway.io/analytics.js"></script>'
+
 [[params.socials]]
 name = "About Me"
 link = "https://joway.io"
