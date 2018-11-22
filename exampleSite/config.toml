@@ -20,6 +20,7 @@ DefaultContentLanguage = "en"
 
 [params]
 disqus = "joway" # disqus account name
+extraHead = ''
 
 [[params.socials]]
 name = "About Me"
