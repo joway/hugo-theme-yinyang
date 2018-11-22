@@ -18,6 +18,3 @@ min_version = "0.50"
 [author]
   name = "Joway Wang"
   homepage = "https://joway.io"
-
-[params]
-extraHead = ''
