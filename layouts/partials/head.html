@@ -28,6 +28,8 @@
   <link rel="stylesheet" href="{{ "css/highlight/tomorrow-night.css" | relURL }}">
   {{- end }}
   <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  <!-- quicklink require -->
+  <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
 
   {{ .Site.Params.extraHead | safeHTML }}
 </head>
