@@ -3,8 +3,10 @@
 <script>
 hljs.initHighlightingOnLoad();
 
-window.addEventListener('load', () =>{
-  quicklink({
+window.addEventListener('load', () => {
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
     priority: true,
   });
 });
