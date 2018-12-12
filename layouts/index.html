@@ -16,7 +16,7 @@
                 {{ range .Site.Languages -}}
                 {{ if ne .LanguageName $curLanguageName }}
                 <div class="lang-switch col-xs-3 col-xs-offset-9">
-                  <a href="/{{ .Lang }}">{{ .LanguageName }}</a>
+                  <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
                 </div>
                 {{ end }}
                 {{ end }}
