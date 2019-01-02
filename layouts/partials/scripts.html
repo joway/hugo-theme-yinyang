@@ -1,11 +1,19 @@
 <script src="{{ "js/highlight.pack.js" | relURL }}"></script>
 <script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script>
+{{ if and .Site.Params.lazyImage (not .IsHome) -}}
+<script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@10.19.0/dist/lazyload.min.js"></script>
 <script>
-hljs.initHighlightingOnLoad();
-
-var posts = document.getElementById('posts-list');
-posts && quicklink({
-  el: posts,
-  priority: true,
-});
+  var lazyImage = new LazyLoad({
+    container: document.getElementById('article')
+  });
+</script>
+{{ end }}
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  var posts = document.getElementById('posts-list');
+  posts && quicklink({
+    el: posts,
+    priority: true,
+  });
 </script>
