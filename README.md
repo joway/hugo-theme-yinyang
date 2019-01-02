@@ -9,6 +9,7 @@
 - minimalist
 - multi-language support
 - [disqus](https://disqus.com) support
+- [SEO Optimization](https://github.com/joway/hugo-theme-yinyang/blob/master/layouts/partials/seo.html)
 
 ## Screenshot
 
