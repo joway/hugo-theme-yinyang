@@ -29,8 +29,6 @@
     rel="stylesheet"
     href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css"
   />
-  <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
-
   {{ if not .IsHome -}}
   <link
     rel="stylesheet"
@@ -41,6 +39,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow-night.min.css"
   />
   {{- end }}
+  <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
   <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
   <!-- quicklink require -->
   <script>

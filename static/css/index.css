@@ -9,6 +9,14 @@ a {
   color: #000;
 }
 
+/* i18n */
+
+.Chinese .markdown-body {
+  font-size: 18px;
+  line-height: 200%;
+  letter-spacing: 0.3px;
+}
+
 /* fonts */
 
 /* @font-face {
