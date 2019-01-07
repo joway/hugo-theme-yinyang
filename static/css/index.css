@@ -9,10 +9,13 @@ a {
   color: #000;
 }
 
-/* i18n */
-
-.Chinese .markdown-body {
+/* overwrite */
+.markdown-body {
   font-size: 18px;
+}
+
+/* i18n */
+.Chinese .markdown-body {
   line-height: 200%;
   letter-spacing: 0.3px;
 }
