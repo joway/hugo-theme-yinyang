@@ -7,9 +7,12 @@
   <meta name="author" content="{{ .Site.Author.name }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
+  {{- if .Site.Params.favicon -}}
+  <link rel="shortcut icon" href="{{ .Site.Params.favicon }}" type="image/x-png" />
+  {{- end -}}
 
   {{ partial "seo" . }}
-  {{ if .IsHome -}}
+  {{- if .IsHome -}}
   <title>{{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Site.Title }}" />
   <meta property="og:type" content="website" />
