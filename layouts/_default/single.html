@@ -28,6 +28,9 @@
           <div class="post-content markdown-body">
             {{ .Content }}
           </div>
+          {{ if .Site.Params.postAds }}
+            {{ .Site.Params.postAds | safeHTML }}
+          {{ end }}
           {{ if .Site.Params.disqus }}
           <div class="post-comments">
             {{ partial "disqus.html" . }}
@@ -38,5 +41,9 @@
     </article>
 
     {{ partial "scripts.html" . }}
+    {{ if .Site.Params.extraBody }}
+      {{ .Site.Params.extraBody | safeHTML }}
+    {{ end }}
+
   </body>
 </html>
