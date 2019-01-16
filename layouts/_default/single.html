@@ -29,7 +29,7 @@
             {{ .Content }}
           </div>
           {{ if .Site.Params.postAds }}
-            {{ .Site.Params.postAds | safeHTML }}
+            <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
           {{ end }}
           {{ if .Site.Params.disqus }}
           <div class="post-comments">
