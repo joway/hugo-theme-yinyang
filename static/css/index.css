@@ -51,9 +51,6 @@ a:hover {
 }
 
 /* posts */
-.posts {
-  margin-bottom: 80px;
-}
 .posts-date,
 .posts-title {
   font-size: 1.2rem;
@@ -61,12 +58,13 @@ a:hover {
 .post-line {
   margin: 12px 0;
 }
-.posts-footer {
+.site-footer {
   margin-top: 50px;
+  margin-bottom: 80px;
   display: flex;
   justify-content: flex-end;
 }
-.posts-footer-item {
+.site-footer-item {
   margin-right: 12px;
 }
 
