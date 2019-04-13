@@ -97,10 +97,15 @@ a:hover {
   font-weight: 600;
 }
 .post-content {
-  text-align: justify;
+  margin-bottom: 50px;
+}
+.post-content p {
   hyphens: auto;
   line-height: 1.6;
-  margin-bottom: 50px;
+  text-align: justify;
+  text-justify: ideographic;
+  word-break: break-all;
+  margin-bottom: 0.5em;
 }
 .post-comments {
   margin-bottom: 50px;
