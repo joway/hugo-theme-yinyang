@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{ partial "head.html" . }}
+{{ partial "head.html" . }}
 
-  <body>
-    <article class="post {{ .Site.Language.LanguageName }}" id="article">
-      <div class="row">
-        <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-          <a href="{{ .LanguagePrefix }}/">
-            <div class="head-line"></div>
-          </a>
-          <header class="post-header">
-            <h1 class="post-title">{{ .Title }}</h1>
-            <div class="row">
-              <div class="col-xs-6">
-                <time class="post-date" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">
-                  {{ .Date.Format "02, Jan, 2006" }}
-                </time>
-              </div>
-              <div class="col-xs-6">
-                <div class="post-author">
-                  <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
-                </div>
+<body>
+  <article class="post {{ .Site.Language.LanguageName }}" id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          {{ partial "header.html" . }}
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">{{ .Title }}</h1>
+          <div class="row">
+            <div class="col-xs-6">
+              <time class="post-date" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">
+                {{ .Date.Format "02, Jan, 2006" }}
+              </time>
+            </div>
+            <div class="col-xs-6">
+              <div class="post-author">
+                <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
               </div>
             </div>
-          </header>
-    
-          <div class="post-content markdown-body">
-            {{ .Content }}
           </div>
-          {{ if .Site.Params.postAds }}
-            <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
-          {{ end }}
-          {{ if .Site.Params.disqus }}
-          <div class="post-comments">
-            {{ partial "disqus.html" . }}
-          </div>
-          {{ end }}
+        </header>
+
+        <div class="post-content markdown-body">
+          {{ .Content }}
         </div>
+        {{ if .Site.Params.postAds }}
+        <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
+        {{ end }}
+        {{ if .Site.Params.disqus }}
+        <div class="post-comments">
+          {{ partial "disqus.html" . }}
+        </div>
+        {{ end }}
       </div>
-    </article>
+    </div>
+  </article>
 
-    {{ partial "scripts.html" . }}
-    {{ if .Site.Params.extraBody }}
-      {{ .Site.Params.extraBody | safeHTML }}
-    {{ end }}
+  {{ partial "scripts.html" . }}
+  {{ if .Site.Params.extraBody }}
+  {{ .Site.Params.extraBody | safeHTML }}
+  {{ end }}
 
-  </body>
+</body>
+
 </html>

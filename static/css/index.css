@@ -40,11 +40,11 @@ a:hover {
 .signatures a {
   text-decoration: none;
 }
-.head-line {
+.header-line {
   height: 3px;
   width: 100%;
-  background-color: #000;
-  margin: 30px 0;
+  background-color: #36282b;
+  margin: 18px 0;
 }
 .lang-switch {
   font-weight: 600;
@@ -71,6 +71,11 @@ a:hover {
 }
 
 /* post */
+@media screen and (max-width: 600px) {
+  .site-header {
+    display: none;
+  }
+}
 .post img {
   max-width: 100%;
   display: block;

@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{ partial "head.html" . }}
-  {{ $curLanguageName := .Site.Language.LanguageName }}
+{{ partial "head.html" . }}
 
-  <body>
-    <article class="posts">
-        <div class="row">
-            <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-              <header>
-                <div class="signatures site-title">
-                  <a href="{{ .LanguagePrefix }}/">{{ .Site.Author.name }}</a>
-                </div>
-              </header>
-              <div class="row">
-                {{ range .Site.Languages -}}
-                {{ if ne .LanguageName $curLanguageName }}
-                <div class="lang-switch col-xs-3 col-xs-offset-9">
-                  <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
-                </div>
-                {{ end }}
-                {{ end }}
-              </div>
-              <div id="posts-list">
-                {{ range .Data.Pages.GroupByDate "2006" -}}
-                <section>
-                  <h1 class="site-date-catalog">{{ .Key }}</h1>
-            
-                  {{ range .Pages -}}
-                  <div class="row post-line">
-                    <div class="posts-date col-xs-2">
-                      <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
-                    </div>
-                    <div class="posts-title col-xs-10">
-                      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    </div>
-                  </div>
-                  {{ end }}
-                </section>
-                {{ end }}
-              </div>
+<body>
+  <article class="posts">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        {{ partial "header.html" . }}
+        <div id="posts-list">
+          {{ range .Data.Pages.GroupByDate "2006" -}}
+          <section>
+            <h1 class="site-date-catalog">{{ .Key }}</h1>
 
-              <div class="posts-footer">
-                {{ range .Site.Params.socials }}
-                <div class="posts-footer-item">
-                  <a href="{{ .link }}" target="_blank">{{ .name }}</a>
-                </div>
-                {{ end }}
-                <div class="posts-footer-item">
-                  <a href="https://github.com/joway/hugo-theme-yinyang" target="_blank">Theme</a>
-                </div>
+            {{ range .Pages -}}
+            <div class="row post-line">
+              <div class="posts-date col-xs-2">
+                <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
+              </div>
+              <div class="posts-title col-xs-10">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
               </div>
             </div>
-          </div>
-    </article>
+            {{ end }}
+          </section>
+          {{ end }}
+        </div>
 
-    {{ partial "scripts.html" . }}
-  </body>
+        <div class="posts-footer">
+          {{ range .Site.Params.socials }}
+          <div class="posts-footer-item">
+            <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+          </div>
+          {{ end }}
+          <div class="posts-footer-item">
+            <a href="https://github.com/joway/hugo-theme-yinyang" target="_blank">Theme</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  {{ partial "scripts.html" . }}
+</body>
+
 </html>
