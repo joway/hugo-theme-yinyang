@@ -97,6 +97,9 @@ a:hover {
   font-weight: 600;
 }
 .post-content {
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.6;
   margin-bottom: 50px;
 }
 .post-comments {
