@@ -1,4 +1,5 @@
 /* global */
+
 body {
   font-family: "Arvo", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
   margin: 0 20px;
@@ -8,6 +9,7 @@ a {
   color: #000;
   text-decoration: none;
 }
+
 a:hover {
   font-weight: 600;
   text-decoration: underline;
@@ -16,64 +18,78 @@ a:hover {
 .post-ads {
   margin: 50px 0;
 }
+
 /* overwrite github-markdown */
+
 .markdown-body {
   font-size: 18px;
 }
 
 /* i18n */
+
 .Chinese .markdown-body {
   line-height: 200%;
 }
 
 /* header */
+
 .site-title {
   font-size: 3rem;
   margin-top: 32px;
 }
+
 .site-date-catalog {
   font-size: 2rem;
 }
+
 .signatures {
   font-family: "Permanent Marker", Impact, Charcoal, sans-serif;
 }
+
 .signatures a {
   text-decoration: none;
 }
+
 .header-line {
   height: 3px;
   width: 100%;
   background-color: #36282b;
   margin: 18px 0;
 }
+
 .lang-switch {
   font-weight: 600;
 }
 
 /* posts */
-.posts-date,
-.posts-title {
+
+.posts-date, .posts-title {
   font-size: 1.2rem;
 }
+
 .post-line {
   margin: 12px 0;
 }
+
 .site-footer {
   margin-top: 50px;
   margin-bottom: 80px;
   display: flex;
   justify-content: flex-end;
 }
+
 .site-footer-item {
   margin-right: 12px;
 }
 
 /* post */
+
 @media screen and (max-width: 600px) {
   .site-header {
     display: none;
   }
 }
+
 .post img {
   max-width: 100%;
   display: block;
@@ -81,24 +97,30 @@ a:hover {
   margin-right: auto;
   margin-top: 12px;
 }
+
 .post-date {
   font-weight: 800;
-  font-style:italic;
+  font-style: italic;
 }
+
 .post-author {
   float: right;
   font-weight: 600;
 }
+
 .post-header {
   margin-bottom: 50px;
 }
+
 .post-title {
   font-size: 2.5rem;
   font-weight: 600;
 }
+
 .post-content {
   margin-bottom: 50px;
 }
+
 .post-content p {
   hyphens: auto;
   line-height: 1.6;
@@ -107,14 +129,21 @@ a:hover {
   word-break: break-all;
   margin-bottom: 1em;
 }
+
 .post-comments {
   margin-bottom: 50px;
 }
 
+.releated {
+  margin-bottom: 50px;
+}
+
 /* disqus */
+
 #disqus_thread {
   position: relative;
 }
+
 #disqus_thread:after {
   content: "";
   display: block;

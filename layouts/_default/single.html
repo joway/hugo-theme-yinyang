@@ -28,6 +28,9 @@
         <div class="post-content markdown-body">
           {{ .Content }}
         </div>
+
+        {{ partial "related.html" . }}
+
         {{ if .Site.Params.postAds }}
         <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
         {{ end }}
