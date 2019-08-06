@@ -24,7 +24,7 @@ extraHead = ''
 
 [[params.socials]]
 name = "Subscribe"
-link = "https://blog.joway.io/atom.xml"
+link = "/index.xml"
 
 [[params.socials]]
 name = "About Me"
