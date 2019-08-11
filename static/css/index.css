@@ -136,6 +136,11 @@ a:hover {
 
 .releated {
   margin-bottom: 50px;
+  margin-top: 150px;
+}
+
+.releated li {
+  margin: 5px 0;
 }
 
 /* disqus */
