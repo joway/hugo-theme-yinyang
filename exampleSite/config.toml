@@ -1,6 +1,6 @@
 baseURL = "https://example.com"
 languageCode = "en-us"
-title = "Joway's Blog"
+title = "Example YinYong Blog"
 theme = "yinyang"
 DefaultContentLanguage = "en"
 
@@ -23,9 +23,9 @@ disqus = "joway" # disqus account name
 extraHead = ''
 
 [[params.socials]]
-name = "Subscribe"
+name = "RSS"
 link = "/index.xml"
 
 [[params.socials]]
-name = "About Me"
+name = "About"
 link = "https://joway.io"
