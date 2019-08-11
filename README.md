@@ -17,7 +17,17 @@
 
 ## Installation
 
-[Install and Use Theme](https://gohugo.io/themes/installing-and-using-themes/)
+From the root of your site:
+
+```shell
+git clone git@github.com:joway/hugo-theme-yinyang.git themes/yinyang
+```
+
+Change `config.toml`:
+
+```toml
+theme = "yinyang"
+```
 
 ## Configuration
 
