@@ -64,6 +64,10 @@ a:hover {
 
 /* posts */
 
+#posts-list {
+  min-height: 70%;
+}
+
 .posts-date, .posts-title {
   font-size: 1.2rem;
 }
