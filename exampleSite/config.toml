@@ -21,6 +21,7 @@ DefaultContentLanguage = "en"
 [params]
 disqus = "joway" # disqus account name
 extraHead = ''
+mainSections = ["posts"]
 
 [[params.socials]]
 name = "RSS"

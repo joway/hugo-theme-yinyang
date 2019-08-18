@@ -31,6 +31,15 @@ theme = "yinyang"
 
 ## Configuration
 
+### Main section
+
+Set your main section:
+
+```
+[params]
+mainSections = ["post"]
+```
+
 ### Multi-Language
 
 ```
@@ -89,6 +98,8 @@ DefaultContentLanguage = "cn"
     weight = 2
 
 [params]
+[params]
+mainSections = ["post"]
 disqus = "joway" # disqus account name
 extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://joway.io/analytics.js"></script>'
 [[params.socials]]

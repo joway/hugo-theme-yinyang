@@ -12,7 +12,7 @@
           <section>
             <h1 class="site-date-catalog">{{ .Key }}</h1>
 
-            {{ range .Pages -}}
+            {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
             <div class="row post-line">
               <div class="posts-date col-xs-2">
                 <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
