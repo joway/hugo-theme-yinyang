@@ -8,11 +8,11 @@
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
         {{ partial "header.html" . }}
         <div id="posts-list">
-          {{ range .Data.Pages.GroupByDate "2006" -}}
+          {{ range (where site.RegularPages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
           <section>
             <h1 class="site-date-catalog">{{ .Key }}</h1>
 
-            {{ range where site.RegularPages "Type" "in" site.Params.mainSections }}
+            {{ range .Pages }}
             <div class="row post-line">
               <div class="posts-date col-xs-2">
                 <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
