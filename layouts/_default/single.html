@@ -17,11 +17,13 @@
                 {{ .Date.Format "02, Jan, 2006" }}
               </time>
             </div>
+            {{ if .Site.Author.name }}
             <div class="col-xs-6">
               <div class="post-author">
                 <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
               </div>
             </div>
+            {{ end }}
           </div>
         </header>
 
