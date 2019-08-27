@@ -20,9 +20,11 @@
               {{ end }}
             </div>
             <div class="col-xs-6">
+              {{ if .Site.Author.name }}
               <div class="post-author">
                 <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
               </div>
+              {{ end }}
             </div>
           </div>
         </header>
@@ -41,7 +43,7 @@
           {{ partial "disqus.html" . }}
         </div>
         {{ end }}
-        
+
         {{ partial "footer.html" . }}
       </div>
     </div>

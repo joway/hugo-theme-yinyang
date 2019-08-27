@@ -31,6 +31,15 @@ theme = "yinyang"
 
 ## Configuration
 
+### Head Title
+
+```
+[params]
+headTitle = "Joway Wang"
+```
+
+If there is no `headTitle` in params, use `.Site.Author.name`.
+
 ### Main section
 
 Set your main section:
@@ -84,7 +93,7 @@ theme = "yinyang"
 DefaultContentLanguage = "cn"
 
 [author]
-  name = "Joway Wang"
+  name = "Joway"
   homepage = "https://joway.io/"
 
 [languages]
@@ -98,10 +107,10 @@ DefaultContentLanguage = "cn"
     weight = 2
 
 [params]
-[params]
 mainSections = ["post"]
+headTitle = "Joway Wang"
 disqus = "joway" # disqus account name
-extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://joway.io/analytics.js"></script>'
+extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxx"></script>'
 [[params.socials]]
 name = "About Me"
 link = "https://joway.io"
