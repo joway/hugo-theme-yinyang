@@ -13,16 +13,16 @@
           <h1 class="post-title">{{ .Title }}</h1>
           <div class="row post-desc">
             <div class="col-xs-6">
-              {{ if .Date }}
               <time class="post-date" datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">
-                {{ .Date.Format "02 Jan 2006" }}
+                {{ .Date.Format "02, Jan, 2006" }}
               </time>
-              {{ end }}
             </div>
             <div class="col-xs-6">
+              {{ if .Site.Author.name }}
               <div class="post-author">
                 <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
               </div>
+              {{ end }}
             </div>
           </div>
         </header>
@@ -41,7 +41,7 @@
           {{ partial "disqus.html" . }}
         </div>
         {{ end }}
-        
+
         {{ partial "footer.html" . }}
       </div>
     </div>
