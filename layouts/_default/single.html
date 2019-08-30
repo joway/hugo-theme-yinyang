@@ -11,6 +11,7 @@
         </div>
         <header class="post-header">
           <h1 class="post-title">{{ .Title }}</h1>
+          {{ if eq .Type "post"}}
           <div class="row post-desc">
             <div class="col-xs-6">
               {{ if .Date }}
@@ -27,21 +28,27 @@
               {{ end }}
             </div>
           </div>
+          {{ end }}
         </header>
 
         <div class="post-content markdown-body">
           {{ .Content }}
         </div>
 
+        {{ if eq .Type "post"}}
+
         {{ partial "related.html" . }}
 
         {{ if .Site.Params.postAds }}
         <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
         {{ end }}
+        <!-- split -->
+        <div style="height: 50px;"></div>
         {{ if .Site.Params.disqus }}
         <div class="post-comments">
           {{ partial "disqus.html" . }}
         </div>
+        {{ end }}
         {{ end }}
 
         {{ partial "footer.html" . }}

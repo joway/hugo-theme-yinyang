@@ -145,11 +145,7 @@ a:hover {
   margin-bottom: 1em;
 }
 
-.post-comments {
-  margin-bottom: 50px;
-}
-
-.releated {
+.releated-content {
   border-width: 3px;
   border-style: solid;
   border-color: #000;
@@ -158,7 +154,7 @@ a:hover {
   margin-top: 100px;
 }
 
-.releated li {
+.releated-content li {
   margin: 5px 0;
 }
 
