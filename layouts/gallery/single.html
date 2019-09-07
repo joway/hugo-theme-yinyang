@@ -14,10 +14,14 @@
         </header>
 
         <div class="post-content markdown-body">
-          {{ range .Params.gallery }}
-            {{ .name }}
-            <img src="{{ . }}" alt="">
-          {{ end }}
+          <div class="row gallery">
+            {{ range .Params.gallery }}
+            <div class="col-xs-6 gallery-img">
+              <img src="{{ .url }}" alt="{{ .name }}">
+              <span class="gallery-img-desc">{{ .name }}</span>
+            </div>
+            {{ end }}
+          </div>
         </div>
 
         {{ if .Site.Params.disqus }}
