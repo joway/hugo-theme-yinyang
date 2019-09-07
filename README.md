@@ -46,7 +46,7 @@ Set your main section:
 
 ```
 [params]
-mainSections = ["post"]
+mainSections = ["posts"]
 ```
 
 ### Multi-Language
@@ -107,7 +107,7 @@ DefaultContentLanguage = "cn"
     weight = 2
 
 [params]
-mainSections = ["post"]
+mainSections = ["posts"]
 headTitle = "Joway Wang"
 disqus = "joway" # disqus account name
 extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxx"></script>'

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+{{ partial "head.html" . }}
+
+<body>
+  <article class="post {{ .Site.Language.LanguageName }}" id="article">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="site-header">
+          {{ partial "header.html" . }}
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">{{ .Title }}</h1>
+        </header>
+
+        <div class="post-content markdown-body">
+          {{ range .Params.gallery }}
+            {{ .name }}
+            <img src="{{ . }}" alt="">
+          {{ end }}
+        </div>
+
+        {{ if .Site.Params.disqus }}
+        <div class="post-comments">
+          {{ partial "disqus.html" . }}
+        </div>
+        {{ end }}
+
+        {{ partial "footer.html" . }}
+      </div>
+    </div>
+  </article>
+
+  {{ partial "scripts.html" . }}
+  {{ if .Site.Params.extraBody }}
+  {{ .Site.Params.extraBody | safeHTML }}
+  {{ end }}
+
+</body>
+
+</html>
