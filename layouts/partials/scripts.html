@@ -1,4 +1,4 @@
-<script src="{{ "js/highlight.pack.js" | relURL }}"></script>
+<script src="{{ .Site.Params.staticPrefix }}{{ "js/highlight.pack.js" | relURL }}"></script>
 <!-- <script src="https://unpkg.com/quicklink@0.1.1/dist/quicklink.umd.js"></script> -->
 {{ if and .Site.Params.lazyImage (not .IsHome) -}}
 <script src="{{ .Site.Params.staticPrefix }}{{ "js/lazyload.min.js" | relURL }}"></script>
