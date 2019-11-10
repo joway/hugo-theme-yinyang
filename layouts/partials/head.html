@@ -32,15 +32,15 @@
   {{- end }}
   <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
   <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
-  <!-- font -->
+  <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
   <!-- quicklink require -->
-  <script>
+  <!-- <script>
     /* Disable minification (remove `.min` from URL path) for more info 
     https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver
     */
     (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-  </script>
+  </script> -->
 
   {{ .Site.Params.extraHead | safeHTML }}
 </head>
