@@ -24,14 +24,14 @@
   <meta name="description" content="{{ default .Summary .Description }}" />
   {{- end }}
 
-  <link rel="stylesheet" href="https://unpkg.com/flexboxgrid@6.3.1/dist/flexboxgrid.min.css" />
+  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/flexboxgrid-6.3.1.min.css" | relURL }}" />
   {{ if not .IsHome -}}
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/tomorrow.min.css" />
+    href="{{ .Site.Params.staticPrefix }}{{ "css/github-markdown.min.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/highlight/tomorrow.min.css" | relURL }}" />
   {{- end }}
-  <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
-  <link href="{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/index.css" | relURL }}">
+  <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
   <!-- quicklink require -->

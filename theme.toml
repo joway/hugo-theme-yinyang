@@ -15,6 +15,9 @@ tags = [
 features = ["blog"]
 min_version = "0.50"
 
+[params]
+staticPrefix = ""
+
 [author]
   name = "Joway Wang"
   homepage = "https://joway.io"
