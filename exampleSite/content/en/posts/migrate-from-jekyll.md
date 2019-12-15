@@ -6,6 +6,9 @@ menu:
     parent: tutorials
 prev: /tutorials/mathjax
 title: Migrate to Hugo from Jekyll
+categories: [
+    "Docs",
+]
 weight: 10
 ---
 

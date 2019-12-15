@@ -39,7 +39,7 @@
           <div class="col-xs-12">
             {{ range .Params.categories }}
             <div class="post-category">
-              <a href="/{{ . }}/">
+              <a href="/categories/{{ lower . }}/">
                 {{ . }}
               </a>
             </div>
