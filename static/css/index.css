@@ -1,7 +1,11 @@
 /* global */
 
 body {
-  font-family: "Arvo", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-family: "Arvo", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial,
+    "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC",
+    "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei",
+    "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei,
+    "WenQuanYi Zen Hei Sharp", sans-serif;
   margin: 0 20px;
 }
 
@@ -62,18 +66,30 @@ a:hover {
   font-weight: 600;
 }
 
-/* posts */
+/* posts list */
 
 #posts-list {
   min-height: 70%;
 }
 
-.posts-date, .posts-title {
+.posts-date,
+.posts-title {
   font-size: 1.2rem;
 }
 
-.post-line {
+.posts-line {
   margin: 12px 0;
+}
+.posts-categories {
+  font-size: 0.8rem;
+  margin: auto;
+  text-align: center;
+}
+
+.posts-category {
+  padding: 3px;
+  border: #000 2px solid;
+  margin-bottom: 3px;
 }
 
 .site-footer {
@@ -105,12 +121,28 @@ a:hover {
   }
 }
 
-.post img {
+.post-content img {
   max-width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 12px;
+}
+
+.post-header {
+  margin-bottom: 50px;
+}
+
+.post-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.post-category {
+  display: inline;
+  font-weight: 900;
+  padding: 2px;
+  border: #000 2px solid;
 }
 
 .post-date {
@@ -120,15 +152,6 @@ a:hover {
 
 .post-author {
   float: right;
-  font-weight: 600;
-}
-
-.post-header {
-  margin-bottom: 50px;
-}
-
-.post-title {
-  font-size: 2.5rem;
   font-weight: 600;
 }
 
@@ -156,6 +179,12 @@ a:hover {
 
 .releated-content li {
   margin: 5px 0;
+}
+
+/* taxonomy */
+
+.taxonomy-term {
+  font-size: 3rem;
 }
 
 /* gallery */
