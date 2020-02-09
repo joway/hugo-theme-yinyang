@@ -128,6 +128,18 @@ a:hover {
   margin-right: auto;
   margin-top: 12px;
 }
+.post-row {
+  padding-top: 10px;
+  display: block;
+  text-align: center;
+}
+
+.profile-picture {
+  height: 130px;
+  border: 2px solid #021a40;
+  border-radius: 50%;
+  padding: 3px;
+}
 
 .post-header {
   margin-bottom: 50px;
@@ -143,6 +155,7 @@ a:hover {
   font-weight: 900;
   padding: 2px;
   border: #000 2px solid;
+  margin-right: 5px;
 }
 
 .post-date {
@@ -165,6 +178,21 @@ a:hover {
   text-align: justify;
   text-justify: ideographic;
   margin-bottom: 1em;
+}
+
+.social-button {
+  display: inline;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.linkedin {
+  background-color: #0077b5;
+}
+
+.twitter {
+  background-color: #00acee;
 }
 
 .releated-content {
@@ -200,6 +228,21 @@ a:hover {
   font-weight: 800;
 }
 
+.Growth {
+  background-color: tomato;
+}
+
+.JavaScript {
+  background-color: darkorange;
+}
+
+.OpenSource {
+  background-color: beige;
+}
+
+.Blogging {
+  background-color: salmon;
+}
 /* disqus */
 
 #disqus_thread {

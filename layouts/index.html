@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 {{ partial "head.html" . }}
-
+<script src="https://kit.fontawesome.com/292be55901.js" crossorigin="anonymous"></script>
 <body>
   <article class="posts">
+    <div class="row post-row">
+      <img src="/images/pp.png" class="profile-picture" alt="My Picture">
+      <br>
+      <h1>Hassaan Pasha</h1>
+      <br>
+      <p class="twitter social-button">
+      <a href="https://twitter.com/hassaan_pasha">
+        <i class="fab fa-twitter"></i> Follow Me
+      </a>
+      </p>
+    </div>
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
         {{ partial "header.html" . }}
@@ -14,17 +25,18 @@
 
             {{ range .Pages }}
             <div class="row posts-line">
-              <div class="posts-date col-xs-2">
+              <div class="posts-date col-xs-4 col-sm-2">
                 <time datetime="{{ .Date.Format "2006-01-02 15:04:05 MST" }}">{{ .Date.Format "Jan 02"}}</time>
               </div>
-              <div class="posts-title col-xs-10">
+              <div class="posts-title col-xs-8 col-sm-10">
                 <div class="row">
-                  <div class="col-xs-9 col-sm-10">
+                  <div class="col-xs-12 col-sm-10">
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                   </div>
-                  <div class="col-xs-3 col-sm-2 posts-categories">
+                  <div class="col-xs-6 col-sm-2 posts-categories">
                     {{ range .Params.categories }}
-                    <div class="posts-category">
+                    {{ $colorClass := . }}
+                    <div class="posts-category {{ $colorClass }}">
                       <a href="/categories/{{ lower . }}/"><strong>{{ . }}</strong></a>
                     </div>
                     {{ end }}
@@ -38,11 +50,20 @@
         </div>
 
         {{ partial "footer.html" . }}
-      </div>
+        <p class="linkedin social-button">
+          <a href="https://www.linkedin.com/in/hassaan-pasha/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </p>
+        <p class="twitter social-button">
+          <a href="https://twitter.com/hassaan_pasha">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </p>  
+    </div>
     </div>
   </article>
 
   {{ partial "scripts.html" . }}
 </body>
-
 </html>
