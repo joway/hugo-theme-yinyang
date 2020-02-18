@@ -33,14 +33,6 @@
                   <div class="col-xs-12 col-sm-10">
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                   </div>
-                  <div class="col-xs-6 col-sm-2 posts-categories">
-                    {{ range .Params.categories }}
-                    {{ $colorClass := . }}
-                    <div class="posts-category {{ $colorClass }}">
-                      <a href="/categories/{{ lower . }}/"><strong>{{ . }}</strong></a>
-                    </div>
-                    {{ end }}
-                  </div>
                 </div>
               </div>
             </div>
