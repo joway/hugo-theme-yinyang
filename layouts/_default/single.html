@@ -3,13 +3,13 @@
 {{ partial "head.html" . }}
 
 <body>
-  <h4><a href="{{ .Site.BaseURL }}">Home</a></h4>
   <article class="post {{ .Site.Language.LanguageName }}" id="article">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <div class="site-header">
           {{ partial "header.html" . }}
         </div>
+        <p><a style="border: 1px solid black; border-radius:5px; padding:5px" href="{{ .Site.BaseURL }}">Go Back</a></p>
         <header class="post-header">
           <h1 class="post-title">{{ .Title }}</h1>
           {{ if in site.Params.mainSections .Type }}
@@ -48,7 +48,7 @@
             {{ end }}
           </div>
         </div>
-
+        <p style="text-align: center;"><a style="border: 1px solid black; border-radius:5px; padding:5px" href="{{ .Site.BaseURL }}">See All Posts</a></p>
         {{ if in site.Params.mainSections .Type }}
         {{ partial "related.html" . }}
         {{ if .Site.Params.postAds }}

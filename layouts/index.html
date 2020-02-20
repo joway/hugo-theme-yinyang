@@ -9,10 +9,20 @@
       <br>
       <h1>Hassaan Pasha</h1>
       <br>
-      <p class="twitter social-button">
-      <a href="https://twitter.com/hassaan_pasha">
-        <i class="fab fa-twitter"></i> Follow Me
-      </a>
+      <p class="social-button" style="border: 1px solid black;border-radius:5px">
+        <a href="https://twitter.com/hassaan_pasha">
+          <i class="fab fa-twitter"></i> Twitter
+        </a>
+      </p>
+      <p class="social-button" style="border: 1px solid black;border-radius:5px">
+        <a href="https://github.com/hassaanp">
+          <i class="fab fa-github"></i> Github
+        </a>
+      </p>
+      <p class="social-button" style="border: 1px solid black;border-radius:5px">
+        <a href="https://www.linkedin.com/in/hassaan-pasha/">
+          <i class="fab fa-linkedin"></i> Linkedin
+        </a>
       </p>
     </div>
     <div class="row">
@@ -41,7 +51,11 @@
           {{ end }}
         </div>
 
-        {{ partial "footer.html" . }}
+        <p class="github social-button">
+          <a href="https://www.github.com/hassaanp">
+            <i class="fab fa-github"></i>
+          </a>
+        </p>
         <p class="linkedin social-button">
           <a href="https://www.linkedin.com/in/hassaan-pasha/">
             <i class="fab fa-linkedin-in"></i>
@@ -52,6 +66,7 @@
             <i class="fab fa-twitter"></i>
           </a>
         </p>  
+        {{ partial "footer.html" . }}
     </div>
     </div>
   </article>
