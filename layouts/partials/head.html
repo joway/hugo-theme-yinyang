@@ -8,30 +8,40 @@
   <meta property="og:url" content="{{ .Permalink }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
   {{- if .Site.Params.favicon -}}
-  <link rel="shortcut icon" href="{{ .Site.Params.favicon }}" type="image/x-png" />
+  <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}" />
+  <link rel="icon" href="{{ .Site.Params.favicon }}" />
+  <link rel="shortcut" href="{{ .Site.Params.favicon }}" />
   {{- end -}}
+  <link rel="alternate" type="application/atom+xml" href="{{.Site.BaseURL}}index.xml" title="{{ .Site.Title }}">
 
   {{ partial "seo" . }}
+
   {{- if .IsHome -}}
   <title>{{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Site.Title }}" />
   <meta property="og:type" content="website" />
+  <meta property="og:description" content="{{ .Site.Params.description }}" />
   <meta name="description" content="{{ .Site.Params.description }}" />
   {{- else -}}
   <title>{{ .Title }} - {{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
   <meta property="og:type" content="article" />
+  <meta property="og:description" content="{{ default .Summary .Description }}" />
   <meta name="description" content="{{ default .Summary .Description }}" />
   {{- end }}
+  <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
+  {{- if .Params.album -}}
+  <meta property="og:image" content="{{ .Params.album }}" />
+  {{ end }}
 
   <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/flexboxgrid-6.3.1.min.css" | relURL }}" />
   {{ if not .IsHome -}}
-  <link rel="stylesheet"
-    href="{{ .Site.Params.staticPrefix }}{{ "css/github-markdown.min.css" | relURL }}" />
+  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/github-markdown.min.css" | relURL }}" />
   <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/highlight/tomorrow.min.css" | relURL }}" />
   {{- end }}
   <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
-  <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml"
+    title="{{ .Site.Title }}">
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker" rel="stylesheet">
   <!-- quicklink require -->
