@@ -34,7 +34,6 @@
         <div class="post-content markdown-body">
           {{ .Site.Params.postHeaderContent | safeHTML }}
           {{ .Content }}
-          {{ .Site.Params.postFooterContent | safeHTML }}
         </div>
 
         <div class="row middle-xs">
@@ -46,6 +45,11 @@
               </a>
             </div>
             {{ end }}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            {{ .Site.Params.postFooterContent | safeHTML }}
           </div>
         </div>
 
