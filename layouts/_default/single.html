@@ -11,7 +11,7 @@
         </div>
         <header class="post-header">
           <h1 class="post-title">{{ .Title }}</h1>
-          {{ if in site.Params.mainSections .Type }}
+          {{ if in .Site.Params.mainSections .Type }}
           <div class="row post-desc">
             <div class="col-xs-6">
               {{ if .Date }}
@@ -32,7 +32,9 @@
         </header>
 
         <div class="post-content markdown-body">
+          {{ .Site.Params.postHeaderContent | safeHTML }}
           {{ .Content }}
+          {{ .Site.Params.postFooterContent | safeHTML }}
         </div>
 
         <div class="row middle-xs">
@@ -47,7 +49,7 @@
           </div>
         </div>
 
-        {{ if in site.Params.mainSections .Type }}
+        {{ if in .Site.Params.mainSections .Type }}
         {{ partial "related.html" . }}
         {{ if .Site.Params.postAds }}
         <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
