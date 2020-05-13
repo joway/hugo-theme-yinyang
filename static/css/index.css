@@ -119,9 +119,9 @@ a:hover {
   .post-content {
     padding: 0 12px;
   }
-  .post-content p {
+  /* .post-content p {
     letter-spacing: 0.05em;
-  }
+  } */
 }
 
 .post-content img {
