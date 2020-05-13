@@ -119,9 +119,9 @@ a:hover {
   .post-content {
     padding: 0 12px;
   }
-  /* .post-content p {
+  .post-content p {
     letter-spacing: 0.05em;
-  } */
+  }
 }
 
 .post-content img {
@@ -165,7 +165,7 @@ a:hover {
 .post-content p {
   hyphens: auto;
   line-height: 1.8;
-  text-align: justify;
+  /* text-align: justify; */
   text-justify: ideographic;
   margin-bottom: 1em;
 }
