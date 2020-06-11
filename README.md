@@ -83,6 +83,13 @@ link = "https://github.com/joway"
 extraHead = '<script src="xxxx.js"></script>'
 ```
 
+### Extra CSS files
+
+```
+[params]
+extraCSSFiles = ["css/foo.css", "css/bar.css"]
+```
+
 ### Insert content on every post
 
 ```
@@ -127,4 +134,6 @@ name = "Github"
 link = "https://github.com/joway"
 postHeaderContent = ""
 postFooterContent = "<br/><br/><p>Subscribe to：<a target='_blank' href='https://mailchi.mp/a1a0d59e7a19/joway'>Joway's Blog</a></p>"
+# extraCSSFiles = ["css/foo.css", "css/bar.css"]
+extraCSSFiles = []
 ```
