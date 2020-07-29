@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
 
   {{ range .Site.Params.extraCSSFiles -}}
-  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ . | relURL }}">
+  <link rel="stylesheet" href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}">
   {{- end }}
 
   <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml"
