@@ -7,6 +7,12 @@
   <meta name="author" content="{{ .Site.Author.name }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
+
+  {{- if .Site.Params.staticPrefix -}}
+  <link rel="dns-prefetch" href="//{{ .Site.Params.staticPrefix }}" />
+  {{- end -}}
+  <link rel="preload" href="//{{ .Site.Params.staticPrefix }}{{ "js/highlight.pack.js" | relURL }}" as="script" />
+
   {{- if .Site.Params.favicon -}}
   <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}" />
   <link rel="icon" href="{{ .Site.Params.favicon }}" />
