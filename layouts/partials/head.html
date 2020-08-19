@@ -9,9 +9,9 @@
   <link rel="canonical" href="{{ .Permalink }}" />
 
   {{- if .Site.Params.staticPrefix -}}
-  <link rel="dns-prefetch" href="//{{ .Site.Params.staticPrefix }}" />
+  <link rel="dns-prefetch" href="{{ .Site.Params.staticPrefix }}" />
   {{- end -}}
-  <link rel="preload" href="//{{ .Site.Params.staticPrefix }}{{ "js/highlight.pack.js" | relURL }}" as="script" />
+  <link rel="preload" href="{{ .Site.Params.staticPrefix }}{{ "js/highlight.pack.js" | relURL }}" as="script" />
 
   {{- if .Site.Params.favicon -}}
   <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}" />
