@@ -47,11 +47,13 @@
             {{ end }}
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            {{ .Site.Params.postFooterContent | safeHTML }}
+        {{ if in .Site.Params.mainSections .Type }}
+          <div class="row">
+            <div class="col-xs-12">
+              {{ .Site.Params.postFooterContent | safeHTML }}
+            </div>
           </div>
-        </div>
+        {{ end }}
 
         {{ if in .Site.Params.mainSections .Type }}
         {{ partial "related.html" . }}

@@ -159,7 +159,8 @@ a:hover {
 }
 
 .post-content {
-  margin-bottom: 50px;
+  min-height: 60%;
+  /* margin-bottom: 50px; */
 }
 
 .post-content p {
