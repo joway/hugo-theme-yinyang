@@ -105,6 +105,7 @@ a:hover {
     margin-bottom: 80px;
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
     padding: 12px 0;
     border-width: 3px;
     border-style: solid none;
@@ -127,6 +128,12 @@ a:hover {
     }
     .post-content p {
         letter-spacing: 0.05em;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .posts-category {
+        display: none;
     }
 }
 
