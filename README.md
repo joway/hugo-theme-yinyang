@@ -90,6 +90,18 @@ extraHead = '<script src="xxxx.js"></script>'
 extraCSSFiles = ["css/foo.css", "css/bar.css"]
 ```
 
+### Twitter Cards
+
+Add the following setting:
+
+```
+[params]
+twitterCards = true
+```
+
+In a post's front matter, include a keyword `images` with a value of a list of
+URLs of images that will be used for Twitter Cards.
+
 ### Insert content on every post
 
 ```
