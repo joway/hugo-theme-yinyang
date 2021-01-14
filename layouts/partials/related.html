@@ -1,6 +1,6 @@
 {{ $related := (where site.RegularPages "Type" "in" site.Params.mainSections).Related . | first 3 }}
 {{ with $related }}
-<div class="releated-content">
+<div class="related-content">
   <h3>Related Posts</h3>
   <ul>
     {{ range . }}

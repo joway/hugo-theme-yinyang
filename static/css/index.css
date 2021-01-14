@@ -187,7 +187,7 @@ a:hover {
     margin-bottom: 1em;
 }
 
-.releated-content {
+.related-content {
     border-width: 3px;
     border-style: solid;
     border-color: #000;
@@ -196,7 +196,7 @@ a:hover {
     margin-top: 100px;
 }
 
-.releated-content li {
+.related-content li {
     margin: 5px 0;
 }
 
