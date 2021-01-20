@@ -11,7 +11,6 @@
   {{- if .Site.Params.staticPrefix -}}
   <link rel="dns-prefetch" href="{{ .Site.Params.staticPrefix }}" />
   {{- end -}}
-  <link rel="preload" href="{{ .Site.Params.staticPrefix }}{{ "js/highlight.pack.js" | relURL }}" as="script" />
 
   {{- if .Site.Params.favicon -}}
   <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}" />
@@ -41,10 +40,6 @@
   {{ end }}
 
   <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/flexboxgrid-6.3.1.min.css" | relURL }}" />
-  {{ if not .IsHome -}}
-  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/github-markdown.css" | relURL }}" />
-  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/highlight/tomorrow.min.css" | relURL }}" />
-  {{- end }}
   <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
 
   {{ range .Site.Params.extraCSSFiles -}}
