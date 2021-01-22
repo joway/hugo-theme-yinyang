@@ -31,22 +31,6 @@ theme = "yinyang"
 
 ## Configuration
 
-### Makrup for hightlight and markdown
-
-```
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-  [markup.highlight]
-    guessSyntax = true
-    noClasses = true
-    style = "bw"
-    tabWidth = 2
-```
-
-Hightlight style "bw" is a black-white hightlight theme, which is recommended for this project.
-
 ### Head Title
 
 ```

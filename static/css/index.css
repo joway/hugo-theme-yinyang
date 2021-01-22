@@ -32,8 +32,9 @@ a:hover {
 }
 
 .markdown-body pre {
-  /* padding: 16px; */
+  padding: 16px;
   overflow: auto;
+  background-color: #f6f8fa !important;
 }
 
 /* i18n */
