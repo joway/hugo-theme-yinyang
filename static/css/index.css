@@ -62,18 +62,14 @@ a:hover {
 }
 
 /* header */
-
-.site-title {
-  font-size: 3rem;
-  margin-top: 32px;
-}
-
 .site-date-catalog {
   font-size: 2rem;
 }
 
 .signatures {
   font-family: "Permanent Marker", Impact, Charcoal, sans-serif;
+  font-size: 3rem;
+  margin-top: 32px;
 }
 
 .signatures a {
