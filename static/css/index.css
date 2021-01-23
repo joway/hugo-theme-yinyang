@@ -113,8 +113,9 @@ a:hover {
 }
 
 .posts-category {
-  padding: 3px;
+  padding: 3px 0;
   border: #000 2px solid;
+  border-radius: 5px;
   margin-bottom: 3px;
 }
 
