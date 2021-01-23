@@ -31,10 +31,29 @@ a:hover {
   max-width: 100%;
 }
 
+.markdown-body a {
+  text-decoration: underline;
+  text-decoration-color: #000;
+}
+
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
-  background-color: #f6f8fa !important;
+  border-radius: 10px;
+}
+
+.markdown-body code {
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+/* reset code */
+.markdown-body pre > code {
+  padding: 0;
+  font-size: 100%;
+  background-color: inherit;
+  border: 0;
 }
 
 /* i18n */
@@ -63,9 +82,8 @@ a:hover {
 
 .header-line {
   width: 100%;
-  border-width: 3px;
-  border-color: #000;
-  border-style: solid none none none;
+  height: 3px;
+  background-color: #000000;
   margin: 18px 0;
 }
 
@@ -156,8 +174,9 @@ a:hover {
 .post-category {
   display: inline;
   font-weight: 900;
-  padding: 2px;
+  padding: 2px 5px;
   border: #000 2px solid;
+  border-radius: 5px;
 }
 
 .post-date {
