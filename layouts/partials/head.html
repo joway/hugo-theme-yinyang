@@ -31,16 +31,20 @@
   <title>{{ .Title }}</title>
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="{{ default .Summary .Description }}" />
-  <meta name="description" content="{{ default .Summary .Description }}" />
+  <meta property="og:description" content="{{ default .Summary .Description | plainify }}" />
+  <meta name="description" content="{{ default .Summary .Description | plainify }}" />
   {{- end }}
   <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
   {{- if .Params.album -}}
   <meta property="og:image" content="{{ .Params.album }}" />
   {{ end }}
 
-  <link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/flexboxgrid-6.3.1.min.css" | relURL }}" />
-  <link rel="stylesheet" href="{{ "css/index.css" | relURL }}">
+  {{ with resources.Get "css/index.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
+  {{ with resources.Get "css/flexboxgrid-6.3.1.min.css" | minify }}
+    <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
 
   {{ range .Site.Params.extraCSSFiles -}}
   <link rel="stylesheet" href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}">

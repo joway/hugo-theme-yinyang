@@ -10,9 +10,9 @@
       "name" : "{{ .Title }}",
       "headline" : "{{ .Title }}",
       {{ if .IsHome -}}
-      "description" : "{{ .Site.Params.description }}",
+      "description" : "{{ .Site.Params.description | plainify }}",
       {{- else -}}
-      "description" : "{{ default .Summary .Description }}",
+      "description" : "{{ default .Summary .Description | plainify }}",
       {{- end }}
       "inLanguage" : "en-US",
       "author" : "{{ .Site.Author.name }}",
