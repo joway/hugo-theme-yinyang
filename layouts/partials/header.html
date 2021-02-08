@@ -1,16 +1,24 @@
 {{ $curLanguageName := .Site.Language.LanguageName }}
 <header>
-  <div class="signatures">
-    <a href="{{ .Site.LanguagePrefix }}/">{{ or .Site.Params.headTitle .Site.Author.name }}</a>
+  <div class="header-title">
+    <a href="{{ .Site.LanguagePrefix }}/"
+      >{{ or .Site.Params.headTitle .Site.Author.name }}</a
+    >
   </div>
+  <div class="header-subtitle">{{ .Site.Params.Description }}</div>
 </header>
+<div class="row end-md center-xs header-items">
+  {{ range .Site.Params.socials }}
+  <div class="header-item">
+    <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+  </div>
+  {{ end }}
+</div>
 <div class="row end-xs">
-  {{ range .Site.Languages -}}
-  {{ if ne .LanguageName $curLanguageName }}
+  {{ range .Site.Languages -}} {{ if ne .LanguageName $curLanguageName }}
   <div class="lang-switch col-xs-3 col-xs-offset-9">
     <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
   </div>
-  {{ end }}
-  {{ end }}
+  {{ end }} {{ end }}
 </div>
 <div class="header-line"></div>
