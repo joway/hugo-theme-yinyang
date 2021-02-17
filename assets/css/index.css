@@ -109,12 +109,8 @@ a:hover {
   min-height: 600px;
 }
 
-.posts-date,
-.posts-title {
-  font-size: 1.2rem;
-}
-
 .posts-line {
+  font-size: 1.2rem;
   margin: 12px 0;
 }
 
@@ -128,7 +124,7 @@ a:hover {
   padding: 3px 0;
   border: #000 2px solid;
   border-radius: 5px;
-  margin-bottom: 3px;
+  /* margin-bottom: 3px; */
 }
 
 .site-footer {
@@ -149,26 +145,6 @@ a:hover {
 
 /* post */
 
-@media screen and (max-width: 600px) {
-  .header-title,
-  .header-subtitle,
-  .header-items {
-    text-align: center;
-  }
-  .post-content {
-    padding: 0 12px;
-  }
-  .post-content p {
-    letter-spacing: 0.05em;
-  }
-}
-
-@media screen and (max-width: 48em) {
-  .posts-category {
-    display: none;
-  }
-}
-
 .post-content img {
   max-width: 100%;
   display: block;
@@ -182,13 +158,13 @@ a:hover {
 }
 
 .post-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
 .post-category {
   display: inline;
-  font-weight: 900;
+  font-weight: 600;
   padding: 2px 5px;
   border: #000 2px solid;
   border-radius: 5px;
@@ -268,4 +244,32 @@ a:hover {
   position: absolute;
   bottom: 0;
   background: white;
+}
+
+@media screen and (max-width: 600px) {
+  .header-title,
+  .header-subtitle,
+  .header-items {
+    text-align: center;
+  }
+
+  .posts-line {
+    font-size: 16px;
+  }
+
+  .markdown-body {
+    font-size: 16px;
+  }
+  .post-title {
+    font-size: 2rem;
+  }
+  .post-content p {
+    letter-spacing: 0.05em;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .posts-category {
+    display: none;
+  }
 }
