@@ -161,10 +161,11 @@ a:hover {
   font-weight: 600;
 }
 
-.post-category {
+.post-tags {
   display: inline;
   font-weight: 600;
   padding: 2px 5px;
+  margin-right: 6px;
   border: #000 2px solid;
   border-radius: 5px;
 }

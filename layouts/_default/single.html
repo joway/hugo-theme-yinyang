@@ -38,9 +38,9 @@
 
         <div class="row middle-xs">
           <div class="col-xs-12">
-            {{ range .Params.categories }}
-            <div class="post-category">
-              <a href="{{ site.LanguagePrefix }}/categories/{{ lower . }}/">
+            {{ range .Params.tags }}
+            <div class="post-tags">
+              <a href="{{ site.LanguagePrefix }}/tags/{{ lower . | urlize }}/">
                 {{ . }}
               </a>
             </div>
