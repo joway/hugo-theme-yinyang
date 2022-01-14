@@ -118,12 +118,15 @@ a:hover {
   font-size: 0.8rem;
   margin: auto;
   text-align: center;
+  display: flex;
+  justify-content: right;
 }
 
 .posts-category {
-  padding: 3px 0;
+  padding: 3px 8px;
   border: #000 2px solid;
   border-radius: 5px;
+  margin-left: 3px;
   /* margin-bottom: 3px; */
 }
 
