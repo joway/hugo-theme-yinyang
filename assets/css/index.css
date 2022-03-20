@@ -246,6 +246,20 @@ a:hover {
   background: white;
 }
 
+#disqus_recommendations {
+  position: relative;
+}
+
+#disqus_recommendations:after {
+  content: "";
+  display: block;
+  height: 55px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: white;
+}
+
 @media screen and (max-width: 600px) {
   .header-title,
   .header-subtitle,
