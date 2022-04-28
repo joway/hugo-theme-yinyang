@@ -37,6 +37,8 @@
   <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
   {{- if .Params.album -}}
   <meta property="og:image" content="{{ .Params.album }}" />
+  {{- else -}}
+  <meta property="og:image" content="{{ .Site.Params.favicon }}" />
   {{ end }}
 
   {{ with resources.Get "css/index.css" | minify }}
