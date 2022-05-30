@@ -159,3 +159,14 @@ postFooterContent = "<br/><br/><p>Subscribe to：<a target='_blank' href='https:
 # extraCSSFiles = ["css/foo.css", "css/bar.css"]
 extraCSSFiles = []
 ```
+
+
+## [Add hugo contact form](https://fabform.io/a/hugo-contact-form)
+
+```
+<form action="https://fabform.io/f/{form-id}" method="post">
+ <label for="email">Your Email</label>
+ <input name="email" type="email">
+ <button type="submit">Submit</button> 
+</form>
+```
