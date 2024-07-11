@@ -46,14 +46,26 @@ a:hover {
 .markdown-body pre {
   padding: 16px;
   overflow: auto;
+  font-size: 70%;
+  line-height: 120%;
   border-radius: 10px;
 }
 
 .markdown-body code {
   padding: 0.2em 0.4em;
   font-size: 85%;
-  background-color: #f6f8fa;
+  background-color: #b6b6b6;
   border-radius: 6px;
+}
+
+table {
+  border-collapse: collapse;
+  vertical-align: middle;
+  text-align: center;
+}
+
+thead, th, td, tr {
+  border: 1px solid #b6b6b6;
 }
 
 /* reset code */

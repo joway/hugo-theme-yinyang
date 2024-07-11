@@ -143,8 +143,12 @@ DefaultContentLanguage = "cn"
     languageName = "Chinese"
     weight = 2
 
+[taxonomies]
+year = "years"
+
 [params]
 mainSections = ["posts"]
+postLimitPerYear = 10 # Number of articles combined limit for the current year
 headTitle = "Joway Wang"
 disqus = "joway" # disqus account name
 extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-xxx"></script>'
