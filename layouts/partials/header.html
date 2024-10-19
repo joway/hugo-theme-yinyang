@@ -7,14 +7,14 @@
   </div>
   <div class="header-subtitle">{{ .Site.Params.Description }}</div>
 </header>
-<div class="row end-md center-xs header-items">
+<div class="row end-md header-items">
   {{ range .Site.Params.socials }}
   <div class="header-item">
     <a href="{{ .link }}" target="_blank">{{ .name }}</a>
   </div>
   {{ end }}
 </div>
-<div class="row end-xs">
+<div class="row">
   {{ range .Site.Languages -}} {{ if ne .LanguageName $curLanguageName }}
   <div class="lang-switch col-xs-3 col-xs-offset-9">
     <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>

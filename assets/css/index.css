@@ -269,7 +269,7 @@ a:hover {
   .header-title,
   .header-subtitle,
   .header-items {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .posts-line {
