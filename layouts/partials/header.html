@@ -1,11 +1,17 @@
 {{ $curLanguageName := .Site.Language.LanguageName }}
-<header>
-  <div class="header-title">
-    <a href="{{ .Site.LanguagePrefix }}/"
-      >{{ or .Site.Params.headTitle .Site.Author.name }}</a
-    >
+<header style="padding-top: 2em;">
+  <div style="display: flex; align-items: center;">
+    <img src="/images/avatar.png" alt="avatar" style="width:100px;height:100px;border-radius:50%;margin-right:16px;">
+    <div>
+      <div class="header-title">
+        <a href="{{ .Site.LanguagePrefix }}/"
+          >{{ or .Site.Params.headTitle .Site.Author.name }}</a
+        >
+      </div>
+      <div style="height: 1em;"></div>
+      <div class="header-subtitle">{{ .Site.Params.Description }}</div>
+    </div>
   </div>
-  <div class="header-subtitle">{{ .Site.Params.Description }}</div>
 </header>
 <div class="row end-md header-items">
   {{ range .Site.Params.socials }}
