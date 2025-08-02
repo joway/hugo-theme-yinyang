@@ -21,9 +21,9 @@
               {{ end }}
             </div>
             <div class="col-xs-6">
-              {{ if .Site.Author.name }}
+              {{ if .Site.Params.author.name }}
               <div class="post-author">
-                <a target="_blank" href="{{ .Site.Author.homepage }}">@{{ .Site.Author.name }}</a>
+                <a target="_blank" href="{{ .Params.author.homepage }}">@{{ .Site.Params.author.name }}</a>
               </div>
               {{ end }}
             </div>

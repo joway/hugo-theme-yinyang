@@ -38,7 +38,7 @@ theme = "yinyang"
 headTitle = "Joway Wang"
 ```
 
-If there is no `headTitle` in params, use `.Site.Author.name`.
+If there is no `headTitle` in params, use `.Site.Params.author.name`.
 
 ### Main section
 

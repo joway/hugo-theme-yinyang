@@ -4,23 +4,27 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="{{ .Site.Author.name }}" />
+  <meta name="author" content="{{ .Site.Params.author.name }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
 
   {{- if .Site.Params.staticPrefix -}}
   <link rel="dns-prefetch" href="{{ .Site.Params.staticPrefix }}" />
   {{- end -}}
-
   {{- if .Site.Params.favicon -}}
   <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}" />
   <link rel="icon" href="{{ .Site.Params.favicon }}" />
   <link rel="shortcut" href="{{ .Site.Params.favicon }}" />
   {{- end -}}
-  <link rel="alternate" type="application/atom+xml" href="{{.Site.BaseURL}}index.xml" title="{{ .Site.Title }}">
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    href="{{.Site.BaseURL}}index.xml"
+    title="{{ .Site.Title }}"
+  />
 
   {{ partial "seo" . }}
-
+  
   {{- if .IsHome -}}
   <title>{{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Site.Title }}" />
@@ -31,8 +35,14 @@
   <title>{{ .Title }}</title>
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:type" content="article" />
-  <meta property="og:description" content="{{ default .Summary .Description | plainify }}" />
-  <meta name="description" content="{{ default .Summary .Description | plainify }}" />
+  <meta
+    property="og:description"
+    content="{{ default .Summary .Description | plainify }}"
+  />
+  <meta
+    name="description"
+    content="{{ default .Summary .Description | plainify }}"
+  />
   {{- end }}
   <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
   {{- if .Params.album -}}
@@ -40,23 +50,25 @@
   {{- else -}}
   <meta property="og:image" content="{{ .Site.Params.favicon }}" />
   {{ end }}
-
   {{ with resources.Get "css/index.css" | minify }}
-    <style>{{ .Content | safeCSS }}</style>
+  <style>{{ .Content|safeCSS }}</style>
   {{ end }}
   {{ with resources.Get "css/flexboxgrid-6.3.1.min.css" | minify }}
-    <style>{{ .Content | safeCSS }}</style>
+  <style>{{ .Content|safeCSS }}</style>
   {{ end }}
-
   {{ range .Site.Params.extraCSSFiles -}}
-  <link rel="stylesheet" href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}">
-  {{- end }}
-
-  <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL }}" rel="alternate" type="application/rss+xml"
-    title="{{ .Site.Title }}">
+  <link
+    rel="stylesheet"
+    href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}"
+  />
+  {{- end }} <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL
+  }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
   <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade"
+    rel="stylesheet"
+  />
   <!-- quicklink require -->
   <!-- <script>
     /* Disable minification (remove `.min` from URL path) for more info 
@@ -65,6 +77,6 @@
     (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
   </script> -->
 
-  {{ if .Site.Params.TwitterCards }}{{ template "_internal/twitter_cards.html" . }}{{ end }}
+  {{ if .Site.Params.TwitterCards }}{{ template "_internal/twitter_cards.html" .}}{{ end }}
   {{ .Site.Params.extraHead | safeHTML }}
 </head>

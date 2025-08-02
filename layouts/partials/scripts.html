@@ -10,6 +10,9 @@
   // remove disqus ads
   document.addEventListener("DOMContentLoaded", function() {
     const disqus = document.getElementById('disqus_thread');
+    if (!disqus) {
+      return;
+    }
     const observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         const iframes = disqus.getElementsByTagName('iframe');

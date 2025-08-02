@@ -1,8 +1,10 @@
-name = "Yinyang"
+description = "Yinyang theme for Hugo."
+features = ["blog"]
+homepage = "https://github.com/joway/hugo-theme-yinyang"
 license = "MIT"
 licenselink = "https://github.com/joway/hugo-theme-yinyang/blob/master/LICENSE.md"
-description = "Yinyang theme for Hugo."
-homepage = "https://github.com/joway/hugo-theme-yinyang"
+min_version = "0.50"
+name = "Yinyang"
 tags = [
   "blog",
   "minimal",
@@ -10,16 +12,14 @@ tags = [
   "responsive",
   "simple",
   "clean",
-  "personal"
+  "personal",
 ]
-features = ["blog"]
-min_version = "0.50"
 
 [params]
 staticPrefix = ""
 # extraCSSFiles = ["css/foo.css", "css/bar.css"]
 extraCSSFiles = []
 
-[author]
-  name = "Joway Wang"
-  homepage = "https://joway.io"
+[params.author]
+homepage = "https://joway.io"
+name = "Joway Wang"

@@ -2,7 +2,7 @@
 <header>
   <div class="header-title">
     <a href="{{ .Site.LanguagePrefix }}/"
-      >{{ or .Site.Params.headTitle .Site.Author.name }}</a
+      >{{ or .Site.Params.headTitle .Site.Params.author.name }}</a
     >
   </div>
   <div class="header-subtitle">{{ .Site.Params.Description }}</div>
