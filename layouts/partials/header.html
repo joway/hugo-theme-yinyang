@@ -13,6 +13,9 @@
     <a href="{{ .link }}" target="_blank">{{ .name }}</a>
   </div>
   {{ end }}
+  <div class="header-item">
+    <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle">🌙</button>
+  </div>
 </div>
 <div class="row">
   {{ range .Site.Languages -}} {{ if ne .LanguageName $curLanguageName }}
