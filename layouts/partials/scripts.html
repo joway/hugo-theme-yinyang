@@ -78,8 +78,12 @@
     // Expose toggle function globally
     window.toggleTheme = toggleTheme;
 
-    // Initialize on load
-    initTheme();
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
   })();
 </script>
 <script>
