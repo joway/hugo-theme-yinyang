@@ -79,11 +79,7 @@
     window.toggleTheme = toggleTheme;
 
     // Initialize when DOM is ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTheme);
-    } else {
-      initTheme();
-    }
+    initTheme();
   })();
 </script>
 <script>

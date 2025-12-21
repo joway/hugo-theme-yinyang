@@ -125,7 +125,7 @@ DefaultContentLanguage = "cn"
       unsafe = true
   [markup.highlight]
     guessSyntax = true
-    noClasses = true
+    noClasses = false
     style = "bw"
     tabWidth = 2
 

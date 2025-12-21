@@ -73,6 +73,7 @@ a:hover {
   padding: 16px;
   overflow: auto;
   border-radius: 10px;
+  background-color: var(--code-bg);
 }
 
 .markdown-body code {
@@ -87,7 +88,7 @@ a:hover {
 .markdown-body pre > code {
   padding: 0;
   font-size: 100%;
-  background-color: inherit;
+  background-color: var(--code-bg);
   border: 0;
 }
 
