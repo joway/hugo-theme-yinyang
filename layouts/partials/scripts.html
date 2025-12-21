@@ -7,6 +7,86 @@
 </script>
 {{ end }}
 <script>
+  // Theme switching functionality
+  (function() {
+    const themeKey = 'theme';
+    const themes = { light: 'light', dark: 'dark', system: 'system' };
+
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function getStoredTheme() {
+      return localStorage.getItem(themeKey);
+    }
+
+    function setTheme(theme) {
+      const root = document.documentElement;
+      if (theme === themes.system) {
+        theme = getSystemTheme();
+      }
+      if (theme === themes.dark) {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      updateToggleButton(theme);
+    }
+
+    function updateToggleButton(theme) {
+      const button = document.getElementById('theme-toggle');
+      if (button) {
+        button.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
+    }
+
+    function initTheme() {
+      const stored = getStoredTheme();
+      let theme;
+      if (stored) {
+        theme = stored === themes.system ? getSystemTheme() : stored;
+        setTheme(stored);
+      } else {
+        // Default to system
+        theme = getSystemTheme();
+        setTheme(themes.system);
+      }
+    }
+
+    function toggleTheme() {
+      const current = getStoredTheme() || themes.system;
+      let next;
+      if (current === themes.system) {
+        next = getSystemTheme() === 'dark' ? themes.light : themes.dark;
+      } else if (current === themes.dark) {
+        next = themes.light;
+      } else {
+        next = themes.dark;
+      }
+      localStorage.setItem(themeKey, next);
+      setTheme(next);
+    }
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+      const stored = getStoredTheme();
+      if (!stored || stored === themes.system) {
+        setTheme(themes.system);
+      }
+    });
+
+    // Expose toggle function globally
+    window.toggleTheme = toggleTheme;
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+      initTheme();
+    }
+  })();
+</script>
+<script>
   // remove disqus ads
   document.addEventListener("DOMContentLoaded", function() {
     const disqus = document.getElementById('disqus_thread');

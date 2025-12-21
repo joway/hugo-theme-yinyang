@@ -1,9 +1,35 @@
 /* global */
 
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #000000;
+  --border-color: #482936;
+  --secondary-text: #666666;
+  --code-bg: #f6f8fa;
+  --blockquote-color: #57606a;
+  --blockquote-border: #d0d7de;
+  --disqus-bg: white;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --link-color: #b0b0b0;
+  --border-color: #8b5a7a;
+  --secondary-text: #aaaaaa;
+  --code-bg: #2d2d2d;
+  --blockquote-color: #a0a0a0;
+  --blockquote-border: #404040;
+  --disqus-bg: #1a1a1a;
+}
+
 body {
   font-family: "Bree Serif", sans-serif;
   -webkit-font-smoothing: antialiased;
   margin: 0 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 article {
@@ -13,7 +39,7 @@ article {
 }
 
 a {
-  color: #000;
+  color: var(--link-color);
   text-decoration: none;
 }
 
@@ -33,14 +59,14 @@ a:hover {
 
 .markdown-body a {
   text-decoration: underline;
-  text-decoration-color: #000;
+  text-decoration-color: var(--link-color);
 }
 
 .markdown-body blockquote {
   margin: 0;
   padding: 0 1em;
-  color: #57606a;
-  border-left: 0.25em solid #d0d7de;
+  color: var(--blockquote-color);
+  border-left: 0.25em solid var(--blockquote-border);
 }
 
 .markdown-body pre {
@@ -52,7 +78,7 @@ a:hover {
 .markdown-body code {
   padding: 0.2em 0.4em;
   font-size: 85%;
-  background-color: #f6f8fa;
+  background-color: var(--code-bg);
   border-radius: 6px;
 }
 
@@ -88,7 +114,7 @@ a:hover {
 }
 
 .header-subtitle {
-  color: #666;
+  color: var(--secondary-text);
 }
 
 .header-items {
@@ -102,12 +128,26 @@ a:hover {
 .header-line {
   width: 100%;
   border-width: 2px;
-  border-color: #482936;
+  border-color: var(--border-color);
   border-style: solid none none none;
 }
 
 .lang-switch {
   font-weight: 600;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--link-color);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: inherit;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  font-weight: 800;
 }
 
 /* posts list */
@@ -129,7 +169,7 @@ a:hover {
 
 .posts-category {
   padding: 3px 0;
-  border: #000 2px solid;
+  border: var(--text-color) 2px solid;
   border-radius: 5px;
   /* margin-bottom: 3px; */
 }
@@ -166,7 +206,7 @@ a:hover {
   font-weight: 600;
   padding: 2px 5px;
   margin-right: 6px;
-  border: #000 2px solid;
+  border: var(--text-color) 2px solid;
   border-radius: 5px;
 }
 
@@ -218,7 +258,7 @@ a:hover {
 .related-content {
   border-width: 3px;
   border-style: solid;
-  border-color: #000;
+  border-color: var(--text-color);
   padding: 0 10px;
   margin-bottom: 50px;
   margin-top: 100px;
@@ -262,7 +302,7 @@ a:hover {
   width: 100%;
   position: absolute;
   bottom: 0;
-  background: white;
+  background: var(--disqus-bg);
 }
 
 @media screen and (max-width: 600px) {
