@@ -1,22 +1,3 @@
-<!-- Prevent theme flash by setting theme before page render -->
-<script>
-  (function() {
-    const themeKey = 'theme';
-    const stored = localStorage.getItem(themeKey);
-    const root = document.documentElement;
-    
-    if (stored === 'dark') {
-      root.setAttribute('data-theme', 'dark');
-    } else if (stored === 'system' || !stored) {
-      // Check system preference
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (prefersDark) {
-        root.setAttribute('data-theme', 'dark');
-      }
-    }
-    // If stored === 'light' or no match, use default (light theme)
-  })();
-</script>
 <head>
   <meta charset="utf-8" />
   {{ hugo.Generator }}
@@ -96,6 +77,25 @@
     (function (undefined) { }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
   </script> -->
 
+  <!-- Prevent theme flash by setting theme before page render -->
+  <script data-cfasync="false">
+    (function() {
+      const themeKey = 'theme';
+      const stored = localStorage.getItem(themeKey);
+      const root = document.documentElement;
+      
+      if (stored === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else if (stored === 'system' || !stored) {
+        // Check system preference
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (prefersDark) {
+          root.setAttribute('data-theme', 'dark');
+        }
+      }
+      // If stored === 'light' or no match, use default (light theme)
+    })();
+  </script>
   {{ if .Site.Params.TwitterCards }}{{ template "_internal/twitter_cards.html" .}}{{ end }}
   {{ .Site.Params.extraHead | safeHTML }}
 </head>
