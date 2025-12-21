@@ -89,6 +89,13 @@
       function getStoredTheme() {
         return localStorage.getItem(themeKey);
       }
+      function getCurrentTheme() {
+        const stored = getStoredTheme();
+        if (stored && stored !== themes.system) {
+          return stored;
+        }
+        return getSystemTheme();
+      }
       function setTheme(theme) {
         const root = document.documentElement;
         if (theme === themes.system) {
@@ -106,6 +113,9 @@
         if (button) {
           button.textContent = theme === 'dark' ? '☀️' : '🌙';
         }
+      }
+      function ensureButtonUpdated() {
+        updateToggleButton(getCurrentTheme());
       }
       function initTheme() {
         const stored = getStoredTheme();
@@ -140,6 +150,14 @@
           setTheme(themes.system);
         }
       });
+
+      // Listen for dom loaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', ensureButtonUpdated);
+      } else {
+        // DOM already loaded, update button immediately
+        ensureButtonUpdated();
+      }
 
       // Expose toggle function globally
       window.toggleTheme = toggleTheme;
