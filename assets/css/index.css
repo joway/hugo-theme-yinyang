@@ -126,8 +126,9 @@ a:hover {
   margin: 0 5px;
 }
 
-.header-item-right {
-  margin-left: auto;
+.header-item-left {
+  margin-left: 5px;
+  margin-right: auto;
 }
 
 .header-line {

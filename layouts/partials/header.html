@@ -8,16 +8,17 @@
   <div class="header-subtitle">{{ .Site.Params.Description }}</div>
 </header>
 <div class="row end-md header-items">
+  <div class="header-item-left">
+    <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle">
+      🌙
+    </button>
+  </div>
+
   {{ range .Site.Params.socials }}
   <div class="header-item">
     <a href="{{ .link }}" target="_blank">{{ .name }}</a>
   </div>
   {{ end }}
-  <div class="header-item header-item-right">
-    <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle">
-      🌙
-    </button>
-  </div>
 </div>
 <div class="row">
   {{ range .Site.Languages -}} {{ if ne .LanguageName $curLanguageName }}
