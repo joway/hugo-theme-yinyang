@@ -1,12 +1,7 @@
 baseURL = "https://example.com"
 languageCode = "en-us"
-title = "Example YinYong Blog"
 theme = "yinyang"
 DefaultContentLanguage = "en"
-
-[author]
-  name = "Joway Wang"
-  homepage = "https://joway.io/"
 
 [languages]
   [languages.en]
@@ -19,13 +14,24 @@ DefaultContentLanguage = "en"
     weight = 1
 
 [params]
+description = "Example site for YinYang theme" 
 disqus = "joway" # disqus account name
-extraHead = ''
-mainSections = ["posts"]
+headTitle = "YinYong Blog" 
+mainSections = ["posts"] 
+postHeaderContent = "" 
+lazyImage = true
+
+[params.author]
+homepage = "https://joway.io/"
+name = "Joway"
 
 [[params.socials]]
 name = "RSS"
 link = "/index.xml"
+
+[[params.socials]]
+link = "https://mailchi.mp/a1a0d59e7a19/joway"
+name = "Subscribe"
 
 [[params.socials]]
 name = "About"
