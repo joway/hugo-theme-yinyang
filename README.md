@@ -113,35 +113,16 @@ postFooterContent = "<br/><br/><p>Subscribe：<a target='_blank' href='https://m
 ### Example
 
 ```
-DefaultContentLanguage = "cn"
+# ---------- Site ----------
 baseURL = "https://blog.joway.io/"
-canonifyURLs = false
-enableRobotsTXT = true
 languageCode = "en-us"
 theme = "yinyang"
 title = "Random Thoughts"
+DefaultContentLanguage = "cn"
+canonifyURLs = false
+enableRobotsTXT = true
 
-# [related]
-# includeNewer = true
-# threshold = 80
-# toLower = false
-# [[related.indices]]
-# name = "date"
-# weight = 100
-# [[related.indices]]
-# name = "keywords"
-# weight = 100
-
-[markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true
-[markup.highlight]
-guessSyntax = true
-noClasses = false
-style = "tango"
-tabWidth = 2
-
+# ---------- Content Language ----------
 [languages]
 # [languages.en]
 #   contentDir = "content/en"
@@ -152,9 +133,22 @@ contentDir = "content/cn"
 languageName = "简体中文"
 weight = 2
 
+# ---------- URL ----------
 [permalinks]
 post = "/blog/:title/"
 
+# ---------- Markdown / Highlight ----------
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.highlight]
+guessSyntax = true
+noClasses = false
+style = "tango"
+tabWidth = 2
+
+# ---------- Theme Params ----------
 [params]
 description = "Log something useless, but interesting." 
 disqus = "joway" # disqus account name
@@ -169,14 +163,17 @@ staticPrefix = "https://cdn.jsdelivr.net/gh/joway/blog"
 # postAds = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6400651395935595" data-ad-slot="5705651853" data-ad-format="auto" data-full-width-responsive="true"></ins>'
 lazyImage = true
 
+# ---------- Analytics ----------
 [services]
   [services.googleAnalytics]
     id = "" # e.g. G-XXXXXXXXXX
 
+# ---------- Author ----------
 [params.author]
 homepage = "https://joway.io/"
 name = "Joway"
 
+# ---------- Social Links ----------
 # [[params.socials]]
 # name = "Telegram"
 # link = "https://t.me/biosthinking"
@@ -198,4 +195,16 @@ name = "Travel"
 [[params.socials]]
 link = "https://joway.io"
 name = "About"
+
+# ---------- Optional: Related Posts ----------
+# [related]
+# includeNewer = true
+# threshold = 80
+# toLower = false
+# [[related.indices]]
+# name = "date"
+# weight = 100
+# [[related.indices]]
+# name = "keywords"
+# weight = 100
 ```
