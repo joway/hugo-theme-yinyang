@@ -158,7 +158,7 @@ post = "/blog/:title/"
 [params]
 description = "Log something useless, but interesting." 
 disqus = "joway" # disqus account name
-extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://cdn.jsdelivr.net/gh/joway/homepage/analytics.js"></script>' 
+extraHead = ''
 favicon = "/logo.png" 
 headTitle = "Random Thoughts" 
 mainSections = ["posts"] 
@@ -168,6 +168,10 @@ staticPrefix = "https://cdn.jsdelivr.net/gh/joway/blog"
 # extraBody = '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
 # postAds = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6400651395935595" data-ad-slot="5705651853" data-ad-format="auto" data-full-width-responsive="true"></ins>'
 lazyImage = true
+
+[services]
+  [services.googleAnalytics]
+    id = "" # e.g. G-XXXXXXXXXX
 
 [params.author]
 homepage = "https://joway.io/"
