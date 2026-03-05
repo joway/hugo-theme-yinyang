@@ -113,31 +113,25 @@ postFooterContent = "<br/><br/><p>Subscribe：<a target='_blank' href='https://m
 ### Example
 
 ```
-# ---------- Site ----------
+DefaultContentLanguage = "cn"
 baseURL = "https://blog.joway.io/"
+canonifyURLs = false
+enableRobotsTXT = true
 languageCode = "en-us"
 theme = "yinyang"
 title = "Random Thoughts"
-DefaultContentLanguage = "cn"
-canonifyURLs = false
-enableRobotsTXT = true
 
-# ---------- Content Language ----------
-[languages]
-# [languages.en]
-#   contentDir = "content/en"
-#   languageName = "English"
-#   weight = 1
-[languages.cn]
-contentDir = "content/cn"
-languageName = "简体中文"
-weight = 2
+# [related]
+# includeNewer = true
+# threshold = 80
+# toLower = false
+# [[related.indices]]
+# name = "date"
+# weight = 100
+# [[related.indices]]
+# name = "keywords"
+# weight = 100
 
-# ---------- URL ----------
-[permalinks]
-post = "/blog/:title/"
-
-# ---------- Markdown / Highlight ----------
 [markup]
 [markup.goldmark]
 [markup.goldmark.renderer]
@@ -148,11 +142,23 @@ noClasses = false
 style = "tango"
 tabWidth = 2
 
-# ---------- Theme Params ----------
+[languages]
+# [languages.en]
+#   contentDir = "content/en"
+#   languageName = "English"
+#   weight = 1
+[languages.cn]
+contentDir = "content/cn"
+languageName = "简体中文"
+weight = 2
+
+[permalinks]
+post = "/blog/:title/"
+
 [params]
 description = "Log something useless, but interesting." 
 disqus = "joway" # disqus account name
-extraHead = ''
+extraHead = '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-53624533-8"></script><script src="https://cdn.jsdelivr.net/gh/joway/homepage/analytics.js"></script>' 
 favicon = "/logo.png" 
 headTitle = "Random Thoughts" 
 mainSections = ["posts"] 
@@ -163,17 +169,10 @@ staticPrefix = "https://cdn.jsdelivr.net/gh/joway/blog"
 # postAds = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6400651395935595" data-ad-slot="5705651853" data-ad-format="auto" data-full-width-responsive="true"></ins>'
 lazyImage = true
 
-# ---------- Analytics ----------
-[services]
-  [services.googleAnalytics]
-    id = "" # e.g. G-XXXXXXXXXX
-
-# ---------- Author ----------
 [params.author]
 homepage = "https://joway.io/"
 name = "Joway"
 
-# ---------- Social Links ----------
 # [[params.socials]]
 # name = "Telegram"
 # link = "https://t.me/biosthinking"
@@ -195,16 +194,4 @@ name = "Travel"
 [[params.socials]]
 link = "https://joway.io"
 name = "About"
-
-# ---------- Optional: Related Posts ----------
-# [related]
-# includeNewer = true
-# threshold = 80
-# toLower = false
-# [[related.indices]]
-# name = "date"
-# weight = 100
-# [[related.indices]]
-# name = "keywords"
-# weight = 100
 ```
