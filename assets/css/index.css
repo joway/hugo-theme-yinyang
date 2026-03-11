@@ -1,39 +1,40 @@
 /* global */
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --link-color: #000000;
-  --border-color: #482936;
-  --secondary-text: #666666;
-  --code-bg: #f6f8fa;
-  --blockquote-color: #57606a;
-  --blockquote-border: #d0d7de;
-  --disqus-bg: white;
+  --bg-color: #f4ecd8;
+  --text-color: #3b2f2f;
+  --link-color: #6e4e37;
+  --border-color: #a6917c;
+  --secondary-text: #6b5c5c;
+  --code-bg: #e6dac3;
+  --blockquote-color: #5c4d4d;
+  --blockquote-border: #8c7a6b;
+  --disqus-bg: #f4ecd8;
 }
 
 [data-theme="dark"] {
-  --bg-color: #1a1a1a;
-  --text-color: #e0e0e0;
-  --link-color: #b0b0b0;
-  --border-color: #8b5a7a;
-  --secondary-text: #aaaaaa;
-  --code-bg: #2d2d2d;
-  --blockquote-color: #a0a0a0;
-  --blockquote-border: #404040;
-  --disqus-bg: #1a1a1a;
+  --bg-color: #2b2521;
+  --text-color: #d1c7b8;
+  --link-color: #c7a485;
+  --border-color: #594d45;
+  --secondary-text: #a1968a;
+  --code-bg: #3d352f;
+  --blockquote-color: #a1968a;
+  --blockquote-border: #6d6156;
+  --disqus-bg: #2b2521;
 }
 
 body {
-  font-family: "Bree Serif", sans-serif;
+  font-family: "Lora", serif;
   -webkit-font-smoothing: antialiased;
   margin: 0 20px;
   background-color: var(--bg-color);
   color: var(--text-color);
+  line-height: 1.8;
 }
 
 article {
-  max-width: 800px;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -53,7 +54,7 @@ a:hover {
 }
 
 .markdown-body {
-  font-size: 18px;
+  font-size: 19px;
   max-width: 100%;
 }
 
@@ -63,10 +64,13 @@ a:hover {
 }
 
 .markdown-body blockquote {
-  margin: 0;
-  padding: 0 1em;
+  margin: 1.5em 0;
+  padding: 0.5em 1em;
   color: var(--blockquote-color);
   border-left: 0.25em solid var(--blockquote-border);
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1em;
 }
 
 .markdown-body pre {
@@ -105,10 +109,10 @@ a:hover {
 }
 
 .header-title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-top: 32px;
-  font-family: "Bungee Shade", sans-serif;
+  font-family: "Playfair Display", serif;
 }
 .header-title a {
   text-decoration: none;
@@ -341,3 +345,4 @@ a:hover {
     display: none;
   }
 }
+
