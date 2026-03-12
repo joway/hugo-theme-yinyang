@@ -3,6 +3,10 @@ languageCode = "en-us"
 theme = "yinyang"
 DefaultContentLanguage = "en"
 
+[services]
+  [services.googleAnalytics]
+    id = "" # e.g. G-XXXXXXXXXX
+
 [languages]
   [languages.en]
     contentDir = "content/en"
