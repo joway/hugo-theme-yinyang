@@ -6,15 +6,7 @@
   });
 </script>
 {{ end }}
-{{ $showCopyButton := false }}
-{{ if .Site.Params.enableCopyCode }}
-  {{ $pageCopyCode := .Param "enableCopyCode" }}
-  {{ if eq $pageCopyCode false }}
-    {{ $showCopyButton = false }}
-  {{ else }}
-    {{ $showCopyButton = true }}
-  {{ end }}
-{{ end }}
+{{ $showCopyButton := and .Site.Params.enableCopyCode (ne (.Param "enableCopyCode") false) }}
 {{ if $showCopyButton }}
 <script>
 document.addEventListener("DOMContentLoaded", function() {
