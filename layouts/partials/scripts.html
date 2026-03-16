@@ -29,3 +29,34 @@
     observer.observe(disqus, { childList: true, subtree: true });
   });
 </script>
+
+
+{{ $showCopyButton := .Params.enableCopyCode | default .Site.Params.enableCopyCode | default false }}
+{{ if $showCopyButton }}
+<script>
+document.addEventListener('click', e => {
+  const button = e.target.closest('.copy-code-btn');
+  if (!button) return;
+
+  const text = button.parentElement.querySelector('code')?.textContent;
+  if (!text) return;
+
+  navigator.clipboard.writeText(text).then(() => {
+    button.textContent = 'Copied!';
+    button.classList.add('copied');
+
+    setTimeout(() => {
+      button.textContent = 'Copy';
+      button.classList.remove('copied');
+    }, 2000);
+  });
+});
+
+document.querySelectorAll('.markdown-body pre').forEach(pre => {
+  const button = document.createElement('button');
+  button.className = 'copy-code-btn';
+  button.textContent = 'Copy';
+  pre.append(button);
+});
+</script>
+{{ end }}
