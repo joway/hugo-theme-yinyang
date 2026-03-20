@@ -1,25 +1,39 @@
-/* === THEME OVERRIDE USING NEW PALETTE === */
+/* === FONT + COLOR OVERRIDE (FINAL FIX) === */
+
+/* import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&family=Fira+Code&display=swap");
 
 :root {
-  --bg-color: #edf6f9;          /* soft light background */
-  --text-color: #006d77;        /* primary dark teal text */
-  --link-color: #006d77;        /* links match main tone */
-  --border-color: #83c5be;      /* soft teal borders */
-  --secondary-text: #5c8f8f;    /* muted teal-gray */
-  --code-bg: #ffddd2;           /* warm light contrast */
-  --blockquote-color: #006d77;
-  --blockquote-border: #83c5be;
-  --disqus-bg: #edf6f9;
+    /* palette */
+    --bg-color: #edf6f9;
+    --text-color: #006d77;
+    --link-color: #006d77;
+    --border-color: #83c5be;
+    --secondary-text: #5c8f8f;
+    --code-bg: #ffddd2;
+    --blockquote-color: #006d77;
+    --blockquote-border: #83c5be;
+    --disqus-bg: #edf6f9;
+
+    /* ✅ ADD THESE (missing before) */
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --font-heading: "Poppins", sans-serif;
+    --font-mono: "Fira Code", monospace;
 }
 
 [data-theme="dark"] {
-  --bg-color: #0f2f33;          /* deep teal background */
-  --text-color: #edf6f9;        /* soft light text */
-  --link-color: #83c5be;        /* lighter teal links */
-  --border-color: #e29578;      /* warm accent border */
-  --secondary-text: #bcdedc;    /* muted light teal */
-  --code-bg: #1b4d52;           /* dark teal code blocks */
-  --blockquote-color: #cfeeee;
-  --blockquote-border: #83c5be;
-  --disqus-bg: #0f2f33;
+    --bg-color: #0f2f33;
+    --text-color: #edf6f9;
+    --link-color: #83c5be;
+    --border-color: #e29578;
+    --secondary-text: #bcdedc;
+    --code-bg: #1b4d52;
+    --blockquote-color: #cfeeee;
+    --blockquote-border: #83c5be;
+    --disqus-bg: #0f2f33;
+
+    /* keep fonts consistent */
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --font-heading: "Poppins", sans-serif;
+    --font-mono: "Fira Code", monospace;
 }
