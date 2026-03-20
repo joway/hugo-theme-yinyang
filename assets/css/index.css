@@ -70,6 +70,7 @@ a:hover {
 }
 
 .markdown-body pre {
+  position: relative;
   padding: 16px;
   overflow: auto;
   border-radius: 10px;
@@ -337,7 +338,37 @@ a:hover {
 }
 
 @media screen and (max-width: 48em) {
-  .posts-category {
-    display: none;
+    .posts-category {
+        display: none;
+    }
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 12px;
+  background-color: var(--code-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-family: inherit;
+}
+
+.markdown-body pre:hover .copy-code-btn {
+  opacity: 1;
+}
+
+.copy-code-btn.copied {
+  color: #22c55e;
+}
+
+@media (hover: none) {
+  .copy-code-btn {
+    opacity: 1;
   }
 }
