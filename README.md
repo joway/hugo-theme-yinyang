@@ -1,6 +1,6 @@
 # YinYang
 
-[YinYang](https://en.wikipedia.org/wiki/Yin_and_yang) is a minimalist, elegant theme for [Hugo](https://gohugo.io/) with a warm, vintage aesthetic inspired by traditional Chinese philosophy.
+[YinYang](https://en.wikipedia.org/wiki/Yin_and_yang) is a minimalist theme for [Hugo](https://gohugo.io/)
 
 [**Demo**](https://blog.joway.io)
 
@@ -8,15 +8,12 @@
 
 - **Dual Theme Support** - Automatic light/dark mode with manual toggle (respects system preferences)
 - **Multi-language Support** - Built-in support for multilingual content
-- **Responsive Design** - Mobile-first design with flexbox grid
 - **Disqus Comments** - Integrated comment system support
 - **SEO Optimized** - JSON-LD structured data, Open Graph, and Twitter Cards
 - **Gallery Layout** - Special layout for photo galleries
 - **Related Posts** - Automatic related content suggestions
 - **Code Copy Button** - Optional one-click code block copying
 - **Lazy Loading** - Optional image lazy loading for better performance
-- **Custom CSS/JS** - Easy addition of extra stylesheets and scripts
-- **Vintage Aesthetic** - Warm color palette with serif typography (Lora & Playfair Display fonts)
 
 ## Screenshot
 
@@ -60,7 +57,7 @@ mainSections = ["posts"]
 
 ### Theme Switching
 
-The theme automatically respects your system's dark/light mode preference and provides a manual toggle button (🌙/☀️) in the header. Theme preference is saved in localStorage.
+dark/light mode toggle button (🌙/☀️) in the header.
 
 ### Multi-Language Support
 
@@ -340,5 +337,4 @@ MIT License - see [LICENSE.md](LICENSE.md) for details.
 ## Credits
 
 - Original theme by [Joway Wang](https://joway.io)
-- Fonts: [Lora](https://fonts.google.com/specimen/Lora) and [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) from Google Fonts
 - Inspired by the philosophy of [Yin and Yang](https://en.wikipedia.org/wiki/Yin_and_yang)
