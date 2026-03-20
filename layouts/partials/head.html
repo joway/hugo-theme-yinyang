@@ -53,6 +53,10 @@
   {{ with resources.Get "css/index.css" | minify }}
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
+  <!-- Theme overrides -->
+  {{ with resources.Get "css/override.css" | minify }}
+  <style>{{ .Content|safeCSS }}</style>
+  {{ end }}
   {{ with resources.Get "css/flexboxgrid-6.3.1.min.css" | minify }}
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
