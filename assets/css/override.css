@@ -1,4 +1,7 @@
-/* === FONT + COLOR OVERRIDE (FINAL FIX) === */
+/* === FONT + COLOR OVERRIDE (READABLE UPGRADE) === */
+
+/* import better fonts */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=DM+Sans:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap");
 
 :root {
     /* palette */
@@ -11,9 +14,18 @@
     --blockquote-color: #006d77;
     --blockquote-border: #83c5be;
     --disqus-bg: #edf6f9;
-    --font-body: "Source Sans 3", "Segoe UI", sans-serif;
-    --font-heading: "DM Sans", sans-serif;
-    --font-mono: "Fira Code", monospace;
+
+    /* fonts (clean + soft + readable) */
+    --font-body:
+        "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-heading: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* spacing system */
+    --line-height-body: 1.75;
+    --letter-spacing-body: 0.01em;
+    --letter-spacing-heading: -0.01em;
 }
 
 [data-theme="dark"] {
@@ -27,8 +39,14 @@
     --blockquote-border: #83c5be;
     --disqus-bg: #0f2f33;
 
-    /* keep fonts consistent */
-    --font-body: "Inter", "Segoe UI", sans-serif;
-    --font-heading: "Poppins", sans-serif;
-    --font-mono: "Fira Code", monospace;
+    /* keep fonts SAME (important for consistency) */
+    --font-body:
+        "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    --font-heading: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    --line-height-body: 1.75;
+    --letter-spacing-body: 0.01em;
+    --letter-spacing-heading: -0.01em;
 }
