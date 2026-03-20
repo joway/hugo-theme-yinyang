@@ -1,8 +1,5 @@
 /* === GLOBAL === */
 
-/* import fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&family=Fira+Code&display=swap");
-
 :root {
     /* palette */
     --bg-color: #edf6f9;

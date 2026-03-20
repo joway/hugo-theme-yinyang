@@ -1,8 +1,5 @@
 /* === FONT + COLOR OVERRIDE (FINAL FIX) === */
 
-/* import fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600&family=Fira+Code&display=swap");
-
 :root {
     /* palette */
     --bg-color: #edf6f9;
@@ -14,10 +11,8 @@
     --blockquote-color: #006d77;
     --blockquote-border: #83c5be;
     --disqus-bg: #edf6f9;
-
-    /* ✅ ADD THESE (missing before) */
-    --font-body: "Inter", "Segoe UI", sans-serif;
-    --font-heading: "Poppins", sans-serif;
+    --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+    --font-heading: "DM Sans", sans-serif;
     --font-mono: "Fira Code", monospace;
 }
 
