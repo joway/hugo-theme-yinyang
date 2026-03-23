@@ -34,29 +34,34 @@
 {{ $showCopyButton := .Params.enableCopyCode | default .Site.Params.enableCopyCode | default false }}
 {{ if $showCopyButton }}
 <script>
-document.addEventListener('click', e => {
-  const button = e.target.closest('.copy-code-btn');
-  if (!button) return;
-
-  const text = button.parentElement.querySelector('code')?.textContent;
-  if (!text) return;
-
-  navigator.clipboard.writeText(text).then(() => {
-    button.textContent = 'Copied!';
-    button.classList.add('copied');
-
-    setTimeout(() => {
-      button.textContent = 'Copy';
-      button.classList.remove('copied');
-    }, 2000);
+(function() {
+  // Single click handler for all copy buttons
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.copy-code-btn');
+    if (!btn) return;
+    
+    const code = btn.previousElementSibling?.querySelector('code');
+    if (!code) return;
+    
+    navigator.clipboard.writeText(code.textContent).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
   });
-});
-
-document.querySelectorAll('.markdown-body pre').forEach(pre => {
-  const button = document.createElement('button');
-  button.className = 'copy-code-btn';
-  button.textContent = 'Copy';
-  pre.append(button);
-});
+  
+  // Wrap code blocks and add copy buttons
+  document.querySelectorAll('.markdown-body pre').forEach(pre => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block-wrapper';
+    wrapper.innerHTML = '<button class="copy-code-btn" aria-label="Copy code">Copy</button>';
+    
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.insertBefore(pre, wrapper.firstChild);
+  });
+})();
 </script>
 {{ end }}

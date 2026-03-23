@@ -343,23 +343,34 @@ a:hover {
     }
 }
 
+.code-block-wrapper {
+  position: relative;
+  margin: 16px 0;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+}
+
 .copy-code-btn {
   position: absolute;
   top: 8px;
   right: 8px;
   padding: 4px 8px;
   font-size: 12px;
-  background-color: var(--code-bg);
+  background: var(--code-bg);
   color: var(--text-color);
   border: 1px solid var(--border-color);
   border-radius: 4px;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity .2s;
   font-family: inherit;
+  z-index: 10;
 }
 
-.markdown-body pre:hover .copy-code-btn {
+.code-block-wrapper:hover .copy-code-btn,
+.copy-code-btn:focus {
   opacity: 1;
 }
 
