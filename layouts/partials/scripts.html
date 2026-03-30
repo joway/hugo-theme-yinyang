@@ -29,39 +29,3 @@
     observer.observe(disqus, { childList: true, subtree: true });
   });
 </script>
-
-
-{{ $showCopyButton := .Params.enableCopyCode | default .Site.Params.enableCopyCode | default false }}
-{{ if $showCopyButton }}
-<script>
-(function() {
-  // Single click handler for all copy buttons
-  document.addEventListener('click', e => {
-    const btn = e.target.closest('.copy-code-btn');
-    if (!btn) return;
-    
-    const code = btn.previousElementSibling?.querySelector('code');
-    if (!code) return;
-    
-    navigator.clipboard.writeText(code.textContent).then(() => {
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'Copy';
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  });
-  
-  // Wrap code blocks and add copy buttons
-  document.querySelectorAll('.markdown-body pre').forEach(pre => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'code-block-wrapper';
-    wrapper.innerHTML = '<button class="copy-code-btn" aria-label="Copy code">Copy</button>';
-    
-    pre.parentNode.insertBefore(wrapper, pre);
-    wrapper.insertBefore(pre, wrapper.firstChild);
-  });
-})();
-</script>
-{{ end }}
