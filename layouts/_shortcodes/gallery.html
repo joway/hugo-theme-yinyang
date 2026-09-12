@@ -1,6 +1,6 @@
 {{- /* Usage: {{< gallery "tmb/day1/1.jpeg" "tmb/day1/2.jpeg" >}}  (paths relative to assets/images) */ -}}
 <div class="post-gallery">
 {{- range .Params }}
-  {{ partial "image.html" (dict "src" (printf "/images/%s" (strings.TrimPrefix "/images/" (strings.TrimPrefix "/" .)))) }}
+  {{ partial "image.html" (dict "src" (printf "/images/%s" (strings.TrimPrefix "/images/" (strings.TrimPrefix "/" .))) "sizes" "(max-width: 48em) 100vw, 400px") }}
 {{- end }}
 </div>

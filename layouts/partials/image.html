@@ -1,13 +1,14 @@
 {{- /*
-  Render an image. Local images under assets/images are resized (max 1600px wide)
-  and converted to WebP by Hugo's image pipeline. Anything else is passed through.
+  Render an image. Local images under assets/images are converted to WebP and
+  emitted with a srcset of 800/1200/1600px widths. Anything else is passed through.
 
-  Params (dict): src (required), alt, title, class
+  Params (dict): src (required), alt, title, class, sizes
 */ -}}
 {{- $src := .src -}}
 {{- $alt := .alt | default "" -}}
 {{- $title := .title | default "" -}}
 {{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "(max-width: 800px) 100vw, 800px" -}}
 
 {{- /* normalize to an assets path like "images/foo/bar.jpg" */ -}}
 {{- $path := $src -}}
@@ -22,14 +23,22 @@
 {{- end -}}
 
 {{- if and $img (in (slice "image/jpeg" "image/png" "image/webp") $img.MediaType.Type) -}}
-  {{- $maxWidth := 1600 -}}
   {{- $opts := "webp q85" -}}
-  {{- if gt $img.Width $maxWidth -}}
-    {{- $img = $img.Resize (printf "%dx %s" $maxWidth $opts) -}}
-  {{- else -}}
-    {{- $img = $img.Process $opts -}}
+  {{- $widths := slice 800 1200 1600 -}}
+  {{- $variants := slice -}}
+  {{- range $widths -}}
+    {{- if lt . $img.Width -}}
+      {{- $variants = $variants | append ($img.Resize (printf "%dx %s" . $opts)) -}}
+    {{- end -}}
   {{- end -}}
-  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- /* the largest variant is the original width if it is under 1600px, else 1600px */ -}}
+  {{- if le $img.Width 1600 -}}
+    {{- $variants = $variants | append ($img.Process $opts) -}}
+  {{- end -}}
+  {{- $main := index $variants (sub (len $variants) 1) -}}
+  {{- $srcset := slice -}}
+  {{- range $variants }}{{ $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) }}{{ end -}}
+  <img src="{{ $main.RelPermalink }}"{{ if gt (len $variants) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }} width="{{ $main.Width }}" height="{{ $main.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
 {{- else if $img -}}
   <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
 {{- else -}}

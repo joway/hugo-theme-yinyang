@@ -1,3 +1,18 @@
+@font-face {
+  font-family: "Bree Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/BreeSerif-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Bungee Shade";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/BungeeShade-Regular.woff2") format("woff2");
+}
+
 /* global */
 
 :root {

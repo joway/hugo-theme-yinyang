@@ -38,11 +38,16 @@
   />
   {{- end }}
   <meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}" />
-  {{- if .Params.album -}}
-  <meta property="og:image" content="{{ .Params.album }}" />
-  {{- else -}}
-  <meta property="og:image" content="{{ .Site.Params.favicon }}" />
-  {{ end }}
+  {{- $ogImage := "" -}}
+  {{- with .Params.album }}{{ $ogImage = . }}{{ end -}}
+  {{- if and (not $ogImage) (not .IsHome) -}}
+    {{- with findRESubmatch `<img[^>]+src="([^"]+)"` .Content 1 }}{{ $ogImage = index (index . 0) 1 }}{{ end -}}
+  {{- end -}}
+  {{- if and (not $ogImage) .Params.gallery -}}
+    {{- with resources.Get (strings.TrimPrefix "/" (index .Params.gallery 0).url) }}{{ $ogImage = (.Resize "1200x webp q85").RelPermalink }}{{ end -}}
+  {{- end -}}
+  {{- if not $ogImage }}{{ $ogImage = .Site.Params.favicon }}{{ end }}
+  <meta property="og:image" content="{{ $ogImage | absURL }}" />
   {{ with resources.Get "css/index.css" | minify }}
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
@@ -52,12 +57,9 @@
   {{ range .Site.Params.extraCSSFiles -}}
   <link rel="stylesheet" href="{{ . | relURL }}" />
   {{- end }}
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Bree+Serif|Bungee+Shade"
-    rel="stylesheet"
-  />
+  <!-- fonts (self-hosted) -->
+  <link rel="preload" href="{{ "fonts/BreeSerif-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="{{ "fonts/BungeeShade-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin />
   <!-- quicklink require -->
   <!-- <script>
     /* Disable minification (remove `.min` from URL path) for more info 
