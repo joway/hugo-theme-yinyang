@@ -32,6 +32,7 @@
         </header>
 
         <div class="post-content markdown-body">
+          {{ .Site.Params.postHeaderContent | safeHTML }}
           {{ .Content }}
         </div>
 
@@ -55,6 +56,10 @@
 
           {{ partial "related.html" . }}
 
+          {{ if .Site.Params.postAds }}
+          <div class="post-ads">{{ .Site.Params.postAds | safeHTML }}</div>
+          {{ end }}
+
           <!-- split -->
           <div style="height: 50px;"></div>
           {{ if .Site.Params.disqus }}
@@ -64,12 +69,16 @@
           {{ end }}
         {{ end }}
 
+        {{ partial "footer.html" . }}
       </div>
     </div>
   </article>
 
   {{ partial "scripts.html" . }}
 
+  {{ if .Site.Params.extraBody }}
+  {{ .Site.Params.extraBody | safeHTML }}
+  {{ end }}
 </body>
 
 </html>

@@ -48,6 +48,7 @@
 {{- else if $img -}}
   <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} {{ $loading }} decoding="async">
 {{- else -}}
-  {{- if hasPrefix $path "images/" -}}{{ warnf "image not found in assets: %s (from %s)" $path $src }}{{- end -}}
+  {{- /* images under static/ are served as-is (no processing); warn only if the file exists nowhere */ -}}
+  {{- if and (hasPrefix $path "images/") (not (fileExists (printf "static/%s" $path))) -}}{{ warnf "image not found in assets/ or static/: %s (from %s)" $path $src }}{{- end -}}
   <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} {{ $loading }} decoding="async">
 {{- end -}}

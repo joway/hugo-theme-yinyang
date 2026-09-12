@@ -51,7 +51,6 @@ article {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 50px;
 }
 
 a {
@@ -62,6 +61,10 @@ a {
 a:hover {
   font-weight: 600;
   text-decoration: underline;
+}
+
+.post-ads {
+  margin: 50px 0;
 }
 
 .markdown-body {
@@ -212,6 +215,14 @@ a:hover {
   border: var(--text-color) 2px solid;
   border-radius: 5px;
   /* margin-bottom: 3px; */
+}
+
+.site-footer {
+  margin-top: 50px;
+}
+
+.site-footer-item {
+  margin-right: 12px;
 }
 
 /* post */

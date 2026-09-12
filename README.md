@@ -4,6 +4,12 @@
 
 [**Demo**](https://blog.joway.io)
 
+> **Requirements:** Hugo **extended** >= 0.158 (older versions fail on `.Language.Label` / `.Site.Language.Locale`).
+> Images under `assets/images/` are converted to WebP with `srcset`; images under `static/` are served unchanged.
+> `lazyImage` and `staticPrefix` are no longer needed (native `loading="lazy"` is used) and are ignored.
+> Set `params.extraHeadProductionOnly = true` to skip `extraHead` during `hugo server`.
+
+
 ## Feature
 
 - minimalist
