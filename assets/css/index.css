@@ -98,6 +98,34 @@ a:hover {
   border-radius: 6px;
 }
 
+/* tables */
+
+.markdown-body table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 1em 0;
+  font-size: 0.9em;
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--blockquote-border);
+  padding: 6px 13px;
+  text-align: left;
+}
+
+.markdown-body th {
+  font-weight: bold;
+  background-color: var(--code-bg);
+}
+
+.markdown-body tr:nth-child(2n) td {
+  background-color: var(--code-bg);
+}
+
 /* reset code */
 
 .markdown-body pre > code {

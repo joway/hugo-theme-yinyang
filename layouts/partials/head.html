@@ -29,14 +29,9 @@
   <title>{{ .Title }}</title>
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:type" content="article" />
-  <meta
-    property="og:description"
-    content="{{ default .Summary .Description | plainify }}"
-  />
-  <meta
-    name="description"
-    content="{{ default .Summary .Description | plainify }}"
-  />
+  {{- $desc := default .Summary .Description | plainify | htmlUnescape | replaceRE `\s+` " " | truncate 160 }}
+  <meta property="og:description" content="{{ $desc }}" />
+  <meta name="description" content="{{ $desc }}" />
   {{- end }}
   <meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}" />
   {{- $ogImage := "" -}}
@@ -52,7 +47,7 @@
   {{- if .Site.Params.TwitterCards }}
   <meta name="twitter:card" content="{{ if eq $ogImage .Site.Params.favicon }}summary{{ else }}summary_large_image{{ end }}" />
   <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
-  <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ default .Summary .Description | plainify | truncate 200 }}{{ end }}" />
+  <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ default .Summary .Description | plainify | htmlUnescape | replaceRE `\s+` " " | truncate 160 }}{{ end }}" />
   <meta name="twitter:image" content="{{ $ogImage | absURL }}" />
   {{- end }}
   {{ with resources.Get "css/index.css" | minify }}
