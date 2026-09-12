@@ -1,8 +1,6 @@
 <head>
   <meta charset="utf-8" />
-  {{ hugo.Generator }}
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="{{ .Site.Params.author.name }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
@@ -48,6 +46,12 @@
   {{- end -}}
   {{- if not $ogImage }}{{ $ogImage = .Site.Params.favicon }}{{ end }}
   <meta property="og:image" content="{{ $ogImage | absURL }}" />
+  {{- if .Site.Params.TwitterCards }}
+  <meta name="twitter:card" content="{{ if eq $ogImage .Site.Params.favicon }}summary{{ else }}summary_large_image{{ end }}" />
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta name="twitter:description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ default .Summary .Description | plainify | truncate 200 }}{{ end }}" />
+  <meta name="twitter:image" content="{{ $ogImage | absURL }}" />
+  {{- end }}
   {{ with resources.Get "css/index.css" | minify }}
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
@@ -158,6 +162,5 @@
     })();
   </script>
   {{ template "_internal/google_analytics.html" .}}
-  {{ if .Site.Params.TwitterCards }}{{ template "_internal/twitter_cards.html" .}}{{ end }}
   {{ .Site.Params.extraHead | safeHTML }}
 </head>
