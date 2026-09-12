@@ -135,12 +135,6 @@ a:hover {
   border: 0;
 }
 
-/* i18n */
-
-.Chinese .markdown-body {
-  line-height: 200%;
-}
-
 /* header */
 
 .site-date-catalog {

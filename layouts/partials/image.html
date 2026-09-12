@@ -2,7 +2,8 @@
   Render an image. Local images under assets/images are converted to WebP and
   emitted with a srcset of 800/1200/1600px widths. Anything else is passed through.
 
-  Params (dict): src (required), alt, title, class, sizes, link (bool: wrap in <a> to the largest variant)
+  Params (dict): src (required), alt, title, class, sizes, link (bool: wrap in <a> to the largest variant),
+                 eager (bool: loading=eager + fetchpriority=high, for the LCP image)
 */ -}}
 {{- $src := .src -}}
 {{- $alt := .alt | default "" -}}
@@ -10,6 +11,8 @@
 {{- $class := .class | default "" -}}
 {{- $sizes := .sizes | default "(max-width: 800px) 100vw, 800px" -}}
 {{- $link := .link | default false -}}
+{{- $eager := .eager | default false -}}
+{{- $loading := cond $eager `loading="eager" fetchpriority="high"` `loading="lazy"` | safeHTMLAttr -}}
 
 {{- /* normalize to an assets path like "images/foo/bar.jpg" */ -}}
 {{- $path := $src -}}
@@ -40,11 +43,11 @@
   {{- $srcset := slice -}}
   {{- range $variants }}{{ $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) }}{{ end -}}
   {{ if $link }}<a href="{{ $main.RelPermalink }}" target="_blank" rel="noopener" class="img-link">{{ end -}}
-  <img src="{{ $main.RelPermalink }}"{{ if gt (len $variants) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }} width="{{ $main.Width }}" height="{{ $main.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  <img src="{{ $main.RelPermalink }}"{{ if gt (len $variants) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }} width="{{ $main.Width }}" height="{{ $main.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} {{ $loading }} decoding="async">
   {{- if $link }}</a>{{ end }}
 {{- else if $img -}}
-  <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} {{ $loading }} decoding="async">
 {{- else -}}
   {{- if hasPrefix $path "images/" -}}{{ warnf "image not found in assets: %s (from %s)" $path $src }}{{- end -}}
-  <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} {{ $loading }} decoding="async">
 {{- end -}}

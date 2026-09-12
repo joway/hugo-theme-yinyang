@@ -1,1 +1,2 @@
-{{- partial "image.html" (dict "src" .Destination "alt" (.PlainText | default .Page.Title) "title" .Title) -}}
+{{- /* first image of the page is usually the LCP element: load it eagerly with high priority */ -}}
+{{- partial "image.html" (dict "src" .Destination "alt" (.PlainText | default .Page.Title) "title" .Title "eager" (eq .Ordinal 0)) -}}
