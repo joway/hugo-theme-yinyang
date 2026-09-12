@@ -58,6 +58,11 @@
   {{ with resources.Get "css/flexboxgrid-6.3.1.min.css" | minify }}
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
+  {{- if and (not .IsHome) (strings.Contains (string .Content) `class="chroma"`) }}
+  {{ with resources.Get "css/chroma.css" | minify }}
+  <style>{{ .Content|safeCSS }}</style>
+  {{ end }}
+  {{- end }}
   {{ range .Site.Params.extraCSSFiles -}}
   <link rel="stylesheet" href="{{ . | relURL }}" />
   {{- end }}

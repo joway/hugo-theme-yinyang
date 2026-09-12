@@ -2,13 +2,14 @@
   Render an image. Local images under assets/images are converted to WebP and
   emitted with a srcset of 800/1200/1600px widths. Anything else is passed through.
 
-  Params (dict): src (required), alt, title, class, sizes
+  Params (dict): src (required), alt, title, class, sizes, link (bool: wrap in <a> to the largest variant)
 */ -}}
 {{- $src := .src -}}
 {{- $alt := .alt | default "" -}}
 {{- $title := .title | default "" -}}
 {{- $class := .class | default "" -}}
 {{- $sizes := .sizes | default "(max-width: 800px) 100vw, 800px" -}}
+{{- $link := .link | default false -}}
 
 {{- /* normalize to an assets path like "images/foo/bar.jpg" */ -}}
 {{- $path := $src -}}
@@ -38,7 +39,9 @@
   {{- $main := index $variants (sub (len $variants) 1) -}}
   {{- $srcset := slice -}}
   {{- range $variants }}{{ $srcset = $srcset | append (printf "%s %dw" .RelPermalink .Width) }}{{ end -}}
+  {{ if $link }}<a href="{{ $main.RelPermalink }}" target="_blank" rel="noopener" class="img-link">{{ end -}}
   <img src="{{ $main.RelPermalink }}"{{ if gt (len $variants) 1 }} srcset="{{ delimit $srcset ", " }}" sizes="{{ $sizes }}"{{ end }} width="{{ $main.Width }}" height="{{ $main.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+  {{- if $link }}</a>{{ end }}
 {{- else if $img -}}
   <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
 {{- else -}}

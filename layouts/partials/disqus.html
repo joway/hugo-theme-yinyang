@@ -1,15 +1,28 @@
 <div id="disqus_thread"></div>
 <script>
-  window.addEventListener("load", () => {
-    (function() {
-      // DON'T EDIT BELOW THIS LINE
-      var d = document,
-        s = d.createElement("script");
+  (function () {
+    var el = document.getElementById("disqus_thread");
+    var loaded = false;
+    function load() {
+      if (loaded) return;
+      loaded = true;
+      var s = document.createElement("script");
       s.src = "https://{{ .Site.Params.disqus }}.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  });
+      (document.head || document.body).appendChild(s);
+    }
+    if (!("IntersectionObserver" in window)) {
+      window.addEventListener("load", load);
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      if (entries.some(function (e) { return e.isIntersecting; })) {
+        io.disconnect();
+        load();
+      }
+    }, { rootMargin: "600px 0px" });
+    io.observe(el);
+  })();
 </script>
 <noscript
   >Please enable JavaScript to view the
