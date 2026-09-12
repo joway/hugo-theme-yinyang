@@ -1,4 +1,4 @@
-{{ $curLanguageName := .Site.Language.LanguageName }}
+{{ $curLang := .Site.Language.Lang }}
 <header>
   <div class="header-title">
     <a href="{{ .Site.LanguagePrefix }}/"
@@ -21,9 +21,9 @@
   {{ end }}
 </div>
 <div class="row">
-  {{ range .Site.Languages -}} {{ if ne .LanguageName $curLanguageName }}
+  {{ range hugo.Sites -}} {{ if ne .Language.Lang $curLang }}
   <div class="lang-switch col-xs-3 col-xs-offset-9">
-    <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
+    <a href="{{ .Home.RelPermalink }}">{{ .Language.Label }}</a>
   </div>
   {{ end }} {{ end }}
 </div>

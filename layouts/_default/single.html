@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Site.Language.Locale }}">
 {{ partial "head.html" . }}
 
 <body>
-  <article class="post {{ .Site.Language.LanguageName }}" id="article">
+  <article class="post {{ .Site.Language.Lang }}" id="article">
     <div class="row">
       <div class="col-xs-12">
         <div class="site-header">

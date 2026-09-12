@@ -1,0 +1,38 @@
+{{- /*
+  Render an image. Local images under assets/images are resized (max 1600px wide)
+  and converted to WebP by Hugo's image pipeline. Anything else is passed through.
+
+  Params (dict): src (required), alt, title, class
+*/ -}}
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $title := .title | default "" -}}
+{{- $class := .class | default "" -}}
+
+{{- /* normalize to an assets path like "images/foo/bar.jpg" */ -}}
+{{- $path := $src -}}
+{{- $path = index (split $path "?") 0 -}}
+{{- $path = strings.TrimPrefix "https://ik.imagekit.io/elsetech/blog/" $path -}}
+{{- $path = replaceRE `^(\.\./)+` "" $path -}}
+{{- $path = strings.TrimPrefix "/" $path -}}
+
+{{- $img := "" -}}
+{{- if hasPrefix $path "images/" -}}
+  {{- $img = resources.Get $path -}}
+{{- end -}}
+
+{{- if and $img (in (slice "image/jpeg" "image/png" "image/webp") $img.MediaType.Type) -}}
+  {{- $maxWidth := 1600 -}}
+  {{- $opts := "webp q85" -}}
+  {{- if gt $img.Width $maxWidth -}}
+    {{- $img = $img.Resize (printf "%dx %s" $maxWidth $opts) -}}
+  {{- else -}}
+    {{- $img = $img.Process $opts -}}
+  {{- end -}}
+  <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- else if $img -}}
+  <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- else -}}
+  {{- if hasPrefix $path "images/" -}}{{ warnf "image not found in assets: %s (from %s)" $path $src }}{{- end -}}
+  <img src="{{ $src }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- end -}}

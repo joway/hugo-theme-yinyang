@@ -14,15 +14,15 @@
       {{- else -}}
       "description" : "{{ default .Summary .Description | plainify }}",
       {{- end }}
-      "inLanguage" : "en-US",
+      "inLanguage" : "{{ .Site.Language.Locale }}",
       "author" : "{{ .Site.Params.author.name }}",
       "creator" : "{{ .Site.Params.author.name }}",
       "publisher": "{{ .Site.Params.author.name }}",
       "accountablePerson" : "{{ .Site.Params.author.name }}",
       "copyrightHolder" : "{{ .Site.Params.author.name }}",
       "copyrightYear" : "{{ .Date.Format "2006" }}",
-      "datePublished": "{{ .Date }}",
-      "dateModified" : "{{ .Date }}",
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      "dateModified" : "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
       "url" : "{{ .Permalink }}",
       "keywords" : [ {{ if isset .Params "tags" }}{{ range .Params.tags }}"{{ . }}",{{ end }}{{ end }} ]
   }

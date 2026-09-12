@@ -244,6 +244,7 @@ a:hover {
 
 .post-content img {
   max-width: 100%;
+  height: auto;
   display: block;
   margin-right: auto;
   margin-top: 6px;
@@ -284,6 +285,11 @@ a:hover {
 
 .gallery-img {
   text-align: center;
+}
+
+.gallery-img img {
+  max-width: 100%;
+  height: auto;
 }
 
 .gallery-img span {

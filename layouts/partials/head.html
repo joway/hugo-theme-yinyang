@@ -8,20 +8,13 @@
   <meta property="og:url" content="{{ .Permalink }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
 
-  {{- if .Site.Params.staticPrefix -}}
-  <link rel="dns-prefetch" href="{{ .Site.Params.staticPrefix }}" />
-  {{- end -}}
   {{- if .Site.Params.favicon -}}
   <link rel="apple-touch-icon" href="{{ .Site.Params.favicon }}" />
   <link rel="icon" href="{{ .Site.Params.favicon }}" />
-  <link rel="shortcut" href="{{ .Site.Params.favicon }}" />
   {{- end -}}
-  <link
-    rel="alternate"
-    type="application/atom+xml"
-    href="{{.Site.BaseURL}}index.xml"
-    title="{{ .Site.Title }}"
-  />
+  {{ with .Site.Home.OutputFormats.Get "rss" -}}
+  <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}" />
+  {{- end }}
 
   {{ partial "seo" . }}
   
@@ -44,7 +37,7 @@
     content="{{ default .Summary .Description | plainify }}"
   />
   {{- end }}
-  <meta property="og:locale" content="{{ .Site.LanguageCode }}" />
+  <meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}" />
   {{- if .Params.album -}}
   <meta property="og:image" content="{{ .Params.album }}" />
   {{- else -}}
@@ -57,12 +50,8 @@
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
   {{ range .Site.Params.extraCSSFiles -}}
-  <link
-    rel="stylesheet"
-    href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}"
-  />
-  {{- end }} <link href="{{ .Site.Params.staticPrefix }}{{ "index.xml" | relURL
-  }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  <link rel="stylesheet" href="{{ . | relURL }}" />
+  {{- end }}
   <!-- fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link
