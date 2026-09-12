@@ -3,7 +3,7 @@ features = ["blog"]
 homepage = "https://github.com/joway/hugo-theme-yinyang"
 license = "MIT"
 licenselink = "https://github.com/joway/hugo-theme-yinyang/blob/master/LICENSE.md"
-min_version = "0.50"
+min_version = "0.158.0"
 name = "Yinyang"
 tags = [
   "blog",
@@ -17,8 +17,6 @@ tags = [
 
 [params]
 staticPrefix = ""
-# extraCSSFiles = ["css/foo.css", "css/bar.css"]
-extraCSSFiles = []
 
 [params.author]
 homepage = "https://joway.io"

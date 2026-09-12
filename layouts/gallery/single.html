@@ -30,15 +30,11 @@
         </div>
         {{ end }}
 
-        {{ partial "footer.html" . }}
       </div>
     </div>
   </article>
 
   {{ partial "scripts.html" . }}
-  {{ if .Site.Params.extraBody }}
-  {{ .Site.Params.extraBody | safeHTML }}
-  {{ end }}
 
 </body>
 

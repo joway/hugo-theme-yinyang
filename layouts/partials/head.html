@@ -26,7 +26,7 @@
   <meta property="og:description" content="{{ .Site.Params.description }}" />
   <meta name="description" content="{{ .Site.Params.description }}" />
   {{- else -}}
-  <title>{{ .Title }}</title>
+  <title>{{ .Title }} · {{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Title }}" />
   <meta property="og:type" content="article" />
   {{- $desc := default .Summary .Description | plainify | htmlUnescape | replaceRE `\s+` " " | truncate 160 }}
@@ -60,9 +60,6 @@
   {{ with resources.Get "css/chroma.css" | minify }}
   <style>{{ .Content|safeCSS }}</style>
   {{ end }}
-  {{- end }}
-  {{ range .Site.Params.extraCSSFiles -}}
-  <link rel="stylesheet" href="{{ . | relURL }}" />
   {{- end }}
   <!-- fonts (self-hosted) -->
   <link rel="preload" href="{{ "fonts/BreeSerif-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin />
