@@ -28,12 +28,29 @@
   {{- else -}}
   <title>{{ .Title }} · {{ .Site.Title }}</title>
   <meta property="og:title" content="{{ .Title }}" />
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="{{ if and .IsPage (in .Site.Params.mainSections .Type) }}article{{ else }}website{{ end }}" />
   {{- $desc := default .Summary .Description | plainify | htmlUnescape | replaceRE `\s+` " " | truncate 160 }}
+  {{- if not $desc }}
+    {{- $n := len (where .Pages "Type" "in" .Site.Params.mainSections) }}
+    {{- $desc = cond (gt $n 0) (printf "%s · %s 下的 %d 篇文章" .Site.Title .Title $n) .Site.Params.description }}
+  {{- end }}
   <meta property="og:description" content="{{ $desc }}" />
   <meta name="description" content="{{ $desc }}" />
   {{- end }}
   <meta property="og:locale" content="{{ replace .Site.Language.Locale "-" "_" }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  {{- if and .IsPage (in .Site.Params.mainSections .Type) }}
+  <meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" />
+  <meta property="article:author" content="{{ .Site.Params.author.homepage }}" />
+  {{- range .Params.categories }}
+  <meta property="article:section" content="{{ . }}" />
+  {{- end }}
+  {{- range .Params.tags }}
+  <meta property="article:tag" content="{{ . }}" />
+  {{- end }}
+  {{- end }}
   {{- $ogImage := "" -}}
   {{- with .Params.album }}{{ $ogImage = . }}{{ end -}}
   {{- if and (not $ogImage) (not .IsHome) -}}
