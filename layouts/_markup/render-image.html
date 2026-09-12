@@ -1,1 +1,1 @@
-{{- partial "image.html" (dict "src" .Destination "alt" .PlainText "title" .Title) -}}
+{{- partial "image.html" (dict "src" .Destination "alt" (.PlainText | default .Page.Title) "title" .Title) -}}

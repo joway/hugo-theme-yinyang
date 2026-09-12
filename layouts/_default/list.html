@@ -12,7 +12,7 @@
         <div id="posts-list">
           {{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
           <section>
-            <h1 class="site-date-catalog">{{ .Key }}</h1>
+            <h2 class="site-date-catalog">{{ .Key }}</h2>
 
             {{ range .Pages }}
             <div class="row posts-line">

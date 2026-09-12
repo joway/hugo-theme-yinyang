@@ -2,6 +2,9 @@
   <meta charset="utf-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a1a" />
   <meta name="author" content="{{ .Site.Params.author.name }}" />
   <meta property="og:url" content="{{ .Permalink }}" />
   <link rel="canonical" href="{{ .Permalink }}" />
@@ -166,6 +169,5 @@
       initTheme();
     })();
   </script>
-  {{ template "_internal/google_analytics.html" .}}
-  {{ .Site.Params.extraHead | safeHTML }}
+  {{ if hugo.IsProduction }}{{ .Site.Params.extraHead | safeHTML }}{{ end }}
 </head>

@@ -1,22 +1,26 @@
 {{ $curLang := .Site.Language.Lang }}
 <header>
+  {{ if .IsHome }}
+  <h1 class="header-title">
+    <a href="{{ .Site.LanguagePrefix }}/">{{ or .Site.Params.headTitle .Site.Params.author.name }}</a>
+  </h1>
+  {{ else }}
   <div class="header-title">
-    <a href="{{ .Site.LanguagePrefix }}/"
-      >{{ or .Site.Params.headTitle .Site.Params.author.name }}</a
-    >
+    <a href="{{ .Site.LanguagePrefix }}/">{{ or .Site.Params.headTitle .Site.Params.author.name }}</a>
   </div>
+  {{ end }}
   <div class="header-subtitle">{{ .Site.Params.Description }}</div>
 </header>
 <div class="row end-md header-items">
   <div class="header-item-left">
-    <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle">
+    <button id="theme-toggle" onclick="toggleTheme()" class="theme-toggle" aria-label="切换深色/浅色模式" title="切换深色/浅色模式">
       🌙
     </button>
   </div>
 
   {{ range .Site.Params.socials }}
   <div class="header-item">
-    <a href="{{ .link }}" target="_blank">{{ .name }}</a>
+    <a href="{{ .link }}"{{ if hasPrefix .link "http" }} target="_blank" rel="noopener"{{ end }}>{{ .name }}</a>
   </div>
   {{ end }}
 </div>

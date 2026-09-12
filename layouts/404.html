@@ -1,7 +1,34 @@
-{{ define "main"}}
-    <main id="main">
-      <div>
-       <h1 id="title"><a href="{{ "/" | relURL }}">Go Home</a></h1>
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+{{ partial "head.html" . }}
+
+<body>
+  <article class="posts">
+    <div class="row">
+      <div class="col-xs-12">
+        {{ partial "header.html" . }}
+
+        <h1 class="taxonomy-term">404</h1>
+        <p>这个页面不存在，可能是链接已经失效。可以回到<a href="{{ "/" | relURL }}">首页</a>，或者看看最近的文章：</p>
+        <div id="posts-list">
+          <section>
+            {{ range first 8 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+            <div class="row posts-line">
+              <div class="posts-date col-xs-3 col-sm-2">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+              </div>
+              <div class="posts-title col-xs-9 col-sm-10">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </div>
+            </div>
+            {{ end }}
+          </section>
+        </div>
+
+        {{ partial "footer.html" . }}
       </div>
-    </main>
-{{ end }}
+    </div>
+  </article>
+</body>
+
+</html>
